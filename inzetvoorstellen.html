@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strandboek - Inzetvoorstellen - Reddingsbrigade Zandvoort</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="Logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Styles for Inzetvoorstellen page */
+        .inzet-section {
+            margin-bottom: 40px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        
+        .inzet-header {
+            background: linear-gradient(135deg, #ff5722 0%, #e64a19 100%);
+            color: white;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .inzet-header i {
+            font-size: 2.5em;
+            margin-right: 25px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .inzet-header h2 {
+            margin: 0;
+            font-size: 2em;
+            font-weight: 600;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .inzet-content {
+            padding: 35px;
+        }
+        
+        .category-container {
+            margin-bottom: 30px;
+        }
+        
+        .category-title {
+            margin-top: 15px;
+            margin-bottom: 20px;
+            padding: 15px 25px;
+            background-color: #ff5722;
+            color: white;
+            border-radius: 12px;
+            font-size: 1.4em;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .category-title i {
+            margin-right: 15px;
+            font-size: 1.4em;
+        }
+        
+        .protocols-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .protocol-card {
+            background-color: #f8f8f8;
+            border-radius: 10px;
+            padding: 15px 20px;
+            transition: all 0.3s ease;
+            border-left: 5px solid transparent;
+            display: flex;
+            align-items: center;
+            min-height: 60px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            text-decoration: none;
+            color: #333;
+        }
+        
+        .protocol-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+        
+        /* Color coding for each category */
+        .ehbo {
+            border-left-color: #e74c3c;
+        }
+        
+        .ehbo:hover {
+            background-color: rgba(231, 76, 60, 0.05);
+        }
+        
+        .bader-zwemmer {
+            border-left-color: #3498db;
+        }
+        
+        .bader-zwemmer:hover {
+            background-color: rgba(52, 152, 219, 0.05);
+        }
+        
+        .vaartuig {
+            border-left-color: #2ecc71;
+        }
+        
+        .vaartuig:hover {
+            background-color: rgba(46, 204, 113, 0.05);
+        }
+        
+        .kitesurfer {
+            border-left-color: #9b59b6;
+        }
+        
+        .kitesurfer:hover {
+            background-color: rgba(155, 89, 182, 0.05);
+        }
+        
+        .surfer {
+            border-left-color: #f1c40f;
+        }
+        
+        .surfer:hover {
+            background-color: rgba(241, 196, 15, 0.05);
+        }
+        
+        .vermist-aangebracht {
+            border-left-color: #e67e22;
+        }
+        
+        .vermist-aangebracht:hover {
+            background-color: rgba(230, 126, 34, 0.05);
+        }
+        
+        .dienstverlening {
+            border-left-color: #1abc9c;
+        }
+        
+        .dienstverlening:hover {
+            background-color: rgba(26, 188, 156, 0.05);
+        }
+        
+        .dier {
+            border-left-color: #34495e;
+        }
+        
+        .dier:hover {
+            background-color: rgba(52, 73, 94, 0.05);
+        }
+        
+        /* Set background color for the page */
+        body {
+            background-color: #f8f8f8;
+        }
+        
+        .content-section {
+            padding-top: 30px;
+            padding-bottom: 50px;
+        }
+        
+        p {
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        /* Override default h2 styling for this page only */
+        .content-section h2 {
+            color: inherit;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        /* Responsive styles */
+        @media screen and (max-width: 768px) {
+            .protocols-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo-container">
+                <img src="Logo.png" alt="Reddingsbrigade Zandvoort Logo" class="logo">
+            </div>
+            <nav class="main-nav">
+                <button class="menu-toggle" aria-label="Menu openen">
+                    <span class="hamburger"></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="informatie.html">Informatie</a></li>
+                    <li><a href="inzetvoorstellen.html" class="active">Inzetvoorstellen</a></li>
+                    <li><a href="documenten.html">Documenten</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Inzetvoorstellen</h1>
+                <p>Zandvoortse Reddingsbrigade</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <div class="inzet-section">
+                    <div class="inzet-header">
+                        <i class="fas fa-clipboard-list"></i>
+                        <h2>Inzetvoorstellen</h2>
+                    </div>
+                    <div class="inzet-content">
+                        <div style="background-color: #f8f8f8; padding: 20px; border-radius: 10px; margin-bottom: 30px; border-left: 5px solid #ff5722;">
+                            <p style="margin: 0;"><strong>Let op:</strong> Alle inzetprotocollen zijn afkomstig van de officiële <a href="https://www.reddingsbrigade-meldkamer.nl/Inzetvoorstellen.html" target="_blank" style="color: #ff5722; text-decoration: underline;">Reddingsbrigade Meldkamer</a> website. Klik op een protocol om het bijbehorende PDF-document te openen.</p>
+                        </div>
+                        
+                        <!-- EHBO Category -->
+                        <div class="category-container">
+                            <div class="category-title">
+                                <i class="fas fa-first-aid"></i>
+                                EHBO
+                            </div>
+                            <div class="protocols-grid">
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/Aannemen en waarderen EHBO melding.pdf" target="_blank" class="protocol-card ehbo">
+                                    Waardering EHBO melding
+                                </a>
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/EHBO - ademhalingsproblemen -.pdf" target="_blank" class="protocol-card ehbo">
+                                    Ademhalingsproblemen
+                                </a>
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/EHBO - ademhalingsproblemen kind -.pdf" target="_blank" class="protocol-card ehbo">
+                                    Ademhalingsproblemen kind
+                                </a>
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/EHBO - allergische reactie -.pdf" target="_blank" class="protocol-card ehbo">
+                                    Allergische reactie
+                                </a>
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/EHBO - bedelving -.pdf" target="_blank" class="protocol-card ehbo">
+                                    Bedelving
+                                </a>
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/EHBO - brandwonden -.pdf" target="_blank" class="protocol-card ehbo">
+                                    Brandwonden
+                                </a>
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/EHBO - hersenbloeding -.pdf" target="_blank" class="protocol-card ehbo">
+                                    Hersenbloeding
+                                </a>
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/EHBO - intoxicatie -.pdf" target="_blank" class="protocol-card ehbo">
+                                    Intoxicatie
+                                </a>
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/EHBO - luxatie distorsie -.pdf" target="_blank" class="protocol-card ehbo">
+                                    Luxatie / distorsie
+                                </a>
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/EHBO - reanimatie -.pdf" target="_blank" class="protocol-card ehbo">
+                                    Reanimatie
+                                </a>
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/EHBO - valpartij -.pdf" target="_blank" class="protocol-card ehbo">
+                                    Valpartij
+                                </a>
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/EHBO - verkeersongeval -.pdf" target="_blank" class="protocol-card ehbo">
+                                    Verkeersongeval
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Bader / Zwemmer Category -->
+                        <div class="category-container">
+                            <div class="category-title">
+                                <i class="fas fa-swimmer"></i>
+                                Bader / Zwemmer
+                            </div>
+                            <div class="protocols-grid">
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/Bader zwemmer - in problemen -.pdf" target="_blank" class="protocol-card bader-zwemmer">
+                                    Persoon in problemen
+                                </a>
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/Bader zwemmer - vermist -.pdf" target="_blank" class="protocol-card bader-zwemmer">
+                                    Persoon vermist
+                                </a>
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/Bader zwemmer - drenkeling -.pdf" target="_blank" class="protocol-card bader-zwemmer">
+                                    Drenkeling
+                                </a>
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/Bader zwemmer - drenkeling - reanimatie.pdf" target="_blank" class="protocol-card bader-zwemmer">
+                                    Drenkeling reanimatie
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Vaartuig Category -->
+                        <div class="category-container">
+                            <div class="category-title">
+                                <i class="fas fa-ship"></i>
+                                Vaartuig
+                            </div>
+                            <div class="protocols-grid">
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/Opvarende boot - brand explosie aan boord -.pdf" target="_blank" class="protocol-card vaartuig">
+                                    Brand / Explosie
+                                </a>
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/Opvarende boot - man overboord -.pdf" target="_blank" class="protocol-card vaartuig">
+                                    Man overboord
+                                </a>
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/Opvarende boot - noodsignaal waargenomen -.pdf" target="_blank" class="protocol-card vaartuig">
+                                    Noodsignaal waargenomen
+                                </a>
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/Opvarende boot - omgeslagen -.pdf" target="_blank" class="protocol-card vaartuig">
+                                    Omgeslagen
+                                </a>
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/Opvarende boot - vaartuig gezonken -.pdf" target="_blank" class="protocol-card vaartuig">
+                                    Vaartuig gezonken
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Kitesurfer Category -->
+                        <div class="category-container">
+                            <div class="category-title">
+                                <i class="fas fa-wind"></i>
+                                Kitesurfer
+                            </div>
+                            <div class="protocols-grid">
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/Opvarende kitesurfer - in problemen -.pdf" target="_blank" class="protocol-card kitesurfer">
+                                    In problemen
+                                </a>
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/Opvarende kitesurfer - uitrusting gevonden -.pdf" target="_blank" class="protocol-card kitesurfer">
+                                    Uitrusting gevonden
+                                </a>
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/Opvarende kitesurfer - uitrusting verloren -.pdf" target="_blank" class="protocol-card kitesurfer">
+                                    Uitrusting verloren
+                                </a>
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/Opvarende kitesurfer - vermist -.pdf" target="_blank" class="protocol-card kitesurfer">
+                                    Vermist
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Surfer Category -->
+                        <div class="category-container">
+                            <div class="category-title">
+                                <i class="fas fa-water"></i>
+                                Surfer
+                            </div>
+                            <div class="protocols-grid">
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/Opvarende surfer - in problemen -.pdf" target="_blank" class="protocol-card surfer">
+                                    In problemen
+                                </a>
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/Opvarende surfer - uitrusting gevonden -.pdf" target="_blank" class="protocol-card surfer">
+                                    Uitrusting gevonden
+                                </a>
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/Opvarende surfer - uitrusting verloren -.pdf" target="_blank" class="protocol-card surfer">
+                                    Uitrusting verloren
+                                </a>
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/Opvarende surfer - vermist -.pdf" target="_blank" class="protocol-card surfer">
+                                    Vermist
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Persoon vermist / aangebracht Category -->
+                        <div class="category-container">
+                            <div class="category-title">
+                                <i class="fas fa-search"></i>
+                                Persoon vermist / aangebracht
+                            </div>
+                            <div class="protocols-grid">
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/Vermissing aangebracht.pdf" target="_blank" class="protocol-card vermist-aangebracht">
+                                    Aangebracht
+                                </a>
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/Vermissing -persoon-.pdf" target="_blank" class="protocol-card vermist-aangebracht">
+                                    Vermist
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Dienstverlening Category -->
+                        <div class="category-container">
+                            <div class="category-title">
+                                <i class="fas fa-hands-helping"></i>
+                                Dienstverlening
+                            </div>
+                            <div class="protocols-grid">
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/Dienstverlening - aantreffen explosieven -.pdf" target="_blank" class="protocol-card dienstverlening">
+                                    Aantreffen explosieven
+                                </a>
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/Dienstverlening - BRAND gerucht -.pdf" target="_blank" class="protocol-card dienstverlening">
+                                    Brand gerucht
+                                </a>
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/Dienstverlening - BRAND in Strandhuisje.pdf" target="_blank" class="protocol-card dienstverlening">
+                                    Brand strandhuisje
+                                </a>
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/Dienstverlening - BRAND in Strandpaviljoen.pdf" target="_blank" class="protocol-card dienstverlening">
+                                    Brand strandpaviljoen
+                                </a>
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/Dienstverlening - Stoffelijk overschot aan land -.pdf" target="_blank" class="protocol-card dienstverlening">
+                                    Lijkvinding land
+                                </a>
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/Dienstverlening - Stoffelijk overschot in het water -.pdf" target="_blank" class="protocol-card dienstverlening">
+                                    Lijkvinding water
+                                </a>
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/Dienstverlening - METEO extreem weer -.pdf" target="_blank" class="protocol-card dienstverlening">
+                                    Meteo alarm
+                                </a>
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/Dienstverlening - Politie bijstand -.pdf" target="_blank" class="protocol-card dienstverlening">
+                                    Politie bijstand
+                                </a>
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/Dienstverlening - voertuig berging -.pdf" target="_blank" class="protocol-card dienstverlening">
+                                    Voertuig berging
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <!-- Dier Category -->
+                        <div class="category-container">
+                            <div class="category-title">
+                                <i class="fas fa-paw"></i>
+                                Dier
+                            </div>
+                            <div class="protocols-grid">
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/Dier - aangebracht -.pdf" target="_blank" class="protocol-card dier">
+                                    Aangebracht
+                                </a>
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/Dier - bruinvis dolfijn in problemen -.pdf" target="_blank" class="protocol-card dier">
+                                    Bruinvis
+                                </a>
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/Dier - dood -.pdf" target="_blank" class="protocol-card dier">
+                                    Dood dier
+                                </a>
+                                <a href="https://www.reddingsbrigade-meldkamer.nl/Dier - zeehond in problemen -.pdf" target="_blank" class="protocol-card dier">
+                                    Zeehond
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <img src="Logo.png" alt="Reddingsbrigade Zandvoort Logo" class="footer-logo">
+                    <p>Reddingsbrigade Zandvoort</p>
+                </div>
+                <div class="copyright">
+                    <p>&copy; <span id="year"></span> Reddingsbrigade Zandvoort. Alle rechten voorbehouden.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html> 

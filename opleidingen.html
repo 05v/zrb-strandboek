@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strandboek - Opleidingstrajecten - Reddingsbrigade Zandvoort</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="Logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Additional styles for the aanstellingsrichtlijn section */
+        .aanstellingsrichtlijn-intro {
+            background-color: #f5f9ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 5px solid #0077cc;
+        }
+        
+        .specialisatie-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+            gap: 15px;
+            border-bottom: none;
+            /* background-color: #f6f6f6; */
+            padding: 20px;
+            border-radius: 12px;
+        }
+        
+        .specialisatie-tab {
+            flex: 1;
+            padding: 20px 25px;
+            margin-right: 0;
+            cursor: pointer;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            background-color: white;
+            border: none;
+            text-align: center;
+            min-width: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+            font-size: 1.1em;
+        }
+        
+        .specialisatie-tab i {
+            margin-right: 12px;
+            font-size: 1.5em;
+        }
+        
+        .specialisatie-tab:hover {
+            background-color: #f9f9f9;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+        
+        .specialisatie-tab.active {
+            background-color: #3379c1;
+            color: white;
+            border-color: #3379c1;
+            box-shadow: 0 4px 12px rgba(51,121,193,0.3);
+        }
+        
+        .specialisatie-content {
+            display: none;
+            margin-bottom: 40px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        
+        .specialisatie-content.active {
+            display: block;
+            animation: fadeIn 0.3s;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .specialisatie-content .info-card-header {
+            background-color: #3379c1;
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .specialisatie-content .info-card-header i {
+            font-size: 2em;
+            margin-right: 15px;
+        }
+        
+        .specialisatie-content .info-card-header h3 {
+            margin: 0;
+            font-size: 1.8em;
+        }
+        
+        .specialisatie-content h4:first-of-type {
+            color: #ff6a00;
+            font-size: 1.4em;
+            margin-top: 20px;
+            margin-bottom: 25px;
+            font-weight: 500;
+            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+        
+        .info-card {
+            margin-bottom: 30px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+        }
+        
+        .info-content {
+            padding: 0 20px 20px;
+        }
+        
+        .requirements-list {
+            background-color: #f9f9f9;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        
+        .requirements-list h4 {
+            margin-top: 0;
+            color: #0077cc;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 8px;
+            margin-bottom: 12px;
+        }
+        
+        .step-item {
+            margin-bottom: 25px;
+            padding-left: 20px;
+            border-left: 3px solid #0077cc;
+        }
+        
+        .step-item h4 {
+            margin-top: 0;
+            color: #0077cc;
+        }
+        
+        .important-note {
+            background-color: #fffbea;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #f0bc00;
+            margin: 20px 0;
+        }
+        
+        .info-section {
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .info-section h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #0077cc;
+        }
+        
+        .source-document {
+            background-color: #e8f4ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 30px 0;
+            text-align: center;
+            border: 1px solid #d0e8ff;
+        }
+        
+        .source-document a {
+            color: #0077cc;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        
+        .source-document a:hover {
+            text-decoration: underline;
+        }
+        
+        .info-card-header {
+            padding: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .specialisatie-tabs {
+                padding: 15px;
+                gap: 10px;
+            }
+            
+            .specialisatie-tab {
+                padding: 15px;
+                border-radius: 10px;
+            }
+        }
+        
+        /* Set background color for the page */
+        body {
+            background-color: #f9f9f9;
+        }
+        
+        .content-section {
+            background-color: white;
+            border-radius: 0;
+            box-shadow: none;
+            padding-top: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        h3 {
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo-container">
+                <img src="Logo.png" alt="Reddingsbrigade Zandvoort Logo" class="logo">
+            </div>
+            <nav class="main-nav">
+                <button class="menu-toggle" aria-label="Menu openen">
+                    <span class="hamburger"></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="informatie.html">Informatie</a></li>
+                    <li><a href="documenten.html">Documenten</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Opleidingstrajecten</h1>
+                <p>Informatie over beschikbare opleidingen en aanstellingsrichtlijnen binnen de Reddingsbrigade</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <div class="info-section">
+                    <h2><i class="fas fa-file-alt"></i> Aanstellingsrichtlijn Zandvoortse Reddingsbrigade</h2>
+                    <div class="aanstellingsrichtlijn-intro">
+                        <p>
+                            <strong>Door MK juni 2023 – vastgesteld in bestuursvergadering van juli 2023.</strong>
+                        </p>
+                        <p class="section-intro">
+                            Dit document is opgesteld om inzicht te geven in hoe we omgaan met actieve brigadeleden die
+                            ervaring hebben opgedaan bij andere brigades of elders opleidingen hebben afgerond. We hechten
+                            er waarde aan dat actieve leden voldoende weten van de Zandvoortse situatie om aangesteld te
+                            worden voor welke specialisatie dan ook.
+                        </p>
+                        <p>
+                            Het aanstellen van een lid nieuw tot welke specialisatie dan ook zal altijd door het bestuur gedaan
+                            worden. Trainers en postcommandanten kunnen hierover adviseren.
+                        </p>
+                        <div class="important-note">
+                            <p>
+                                <strong>Afkortingen:</strong><br>
+                                ZRB = Zandvoortse Reddingsbrigade<br>
+                                LFG = Lifeguard<br>
+                                * = Eerste hulp en AED diploma of vrijstelling volgens de laatste versie van het OER van
+                                Reddingsbrigade Nederland. De Vrijstellings verklaring eerste hulp en AED
+                                diploma moet in duplicaat bij het secretariaat van de ZRB gearchiveerd zijn.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <h3>Om welke specialisaties gaat het?</h3>
+                    <div class="specialisatie-tabs">
+                        <div class="specialisatie-tab active" onclick="showSpecialisatie('lifeguard')">
+                            <i class="fas fa-water"></i> Lifeguard
+                        </div>
+                        <div class="specialisatie-tab" onclick="showSpecialisatie('chauffeur')">
+                            <i class="fas fa-truck-monster"></i> Chauffeur
+                        </div>
+                        <div class="specialisatie-tab" onclick="showSpecialisatie('schipper')">
+                            <i class="fas fa-ship"></i> Schipper
+                        </div>
+                        <div class="specialisatie-tab" onclick="showSpecialisatie('rwc')">
+                            <i class="fas fa-water"></i> Schipper RWC
+                        </div>
+                        <div class="specialisatie-tab" onclick="showSpecialisatie('senior')">
+                            <i class="fas fa-user-tie"></i> Senior Lifeguard
+                        </div>
+                    </div>
+                    
+                    <!-- Lifeguard Section -->
+                    <div id="lifeguard" class="specialisatie-content active">
+                        <div class="info-card">
+                            <div class="info-card-header">
+                                <i class="fas fa-water"></i>
+                                <h3>Lifeguard Beach</h3>
+                            </div>
+                            <div class="info-content">
+                                <h4>Lifeguard Beach van buitenaf naar Zandvoort</h4>
+                                
+                                <div class="requirements-list">
+                                    <h4>Vereiste diploma's</h4>
+                                    <ul class="info-list">
+                                        <li>EHBO* diploma</li>
+                                        <li>Diploma Lifeguard Beach</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="step-item">
+                                    <h4>Directe aanstelling</h4>
+                                    <p>
+                                        Bij het tonen van het diploma EHBO* & diploma Lifeguard Beach kan de kandidaat direct aangesteld
+                                        worden tot Lifeguard bij de ZRB.
+                                    </p>
+                                </div>
+                                
+                                <div class="step-item">
+                                    <h4>Proefperiode</h4>
+                                    <p>
+                                        In de eerste zomermaand zal bekeken worden door postcommandanten of het nieuwe lid op de hoogte is 
+                                        van de Zandvoortse protocollen en gang van zaken. Bij gebrek aan deze kennis zal het nieuwe lid zijn/haar 
+                                        eerste jaar worden beschouwd als startbekwaam en zal onder toezicht van de postcommandanten, trainers 
+                                        en ervaren Lifeguards handelen.
+                                    </p>
+                                </div>
+                                
+                                <div class="important-note">
+                                    <p>
+                                        Kan de kandidaat geen diploma EHBO* en/of diploma Lifeguard Beach tonen zal deze eerst gehaald
+                                        moeten worden voordat de kandidaat aangesteld kan worden tot Lifeguard bij de Zandvoortse
+                                        Reddingsbrigade.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Chauffeur Section -->
+                    <div id="chauffeur" class="specialisatie-content">
+                        <div class="info-card">
+                            <div class="info-card-header">
+                                <i class="fas fa-truck-monster"></i>
+                                <h3>Chauffeur (O&G)</h3>
+                            </div>
+                            <div class="info-content">
+                                <h4>Chauffeur(O&G) van buitenaf naar Zandvoort</h4>
+                                
+                                <div class="requirements-list">
+                                    <h4>Vereiste diploma's</h4>
+                                    <ul class="info-list">
+                                        <li>Geldige EHBO* diploma</li>
+                                        <li>Geldig diploma Lifeguard Beach</li>
+                                        <li>Geldig diploma Lifeguard Chauffeur</li>
+                                        <li>(behaalde schriftelijke toets O&G)</li>
+                                        <li>(bewijs van behaalde praktijk sessie binnen de afgelopen 3 jaar)</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="step-item">
+                                    <h4>Beoordeling</h4>
+                                    <p>
+                                        Het nieuwe lid dient minimaal 3 uur met de huidige chauffeurs trainer mee te gaan om zijn/haar 
+                                        vaardigheden te laten zien. In deze 3 uur wordt onder anderen gekeken naar:
+                                    </p>
+                                    <ul class="info-list">
+                                        <li>Kennis over de auto</li>
+                                        <li>Gebiedskennis</li>
+                                        <li>Protocollen van de ZRB</li>
+                                        <li>Vaardigheden van het rijden zelf</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="step-item">
+                                    <h4>Aanstelling</h4>
+                                    <p>
+                                        Ook bij een positief advies van de trainer over alle 4 de aspecten zal een O&G chauffeur van buitenaf
+                                        starten als chauffeur zonder O&G. Heeft hij/zij binnen de afgelopen 3 jaar een praktijk sessie O&G
+                                        gevolgd en functioneert hij/zij goed genoeg dan kan een postcommandant het bestuur aanraden dit
+                                        lid eerder tot O&G Chauffeur aan te stellen.
+                                    </p>
+                                </div>
+                                
+                                <div class="step-item">
+                                    <h4>Bij negatief advies</h4>
+                                    <p>
+                                        Bij een positief advies over de vaardigheden van het rijden zelf maar een negatief advies over de
+                                        kennis van de auto, het gebied of de protocollen van de ZRB kan een nieuw lid alleen aangesteld
+                                        worden tot chauffeur zonder O&G en wordt hij/zij beschouwd als startbekwaam.
+                                    </p>
+                                </div>
+                                
+                                <div class="important-note">
+                                    <p>
+                                        Na 1 jaar kan het bestuur op advies van een postcommandant en/of trainers het besluit nemen of
+                                        het nu actieve ZRB lid genoeg ervaring op heeft gedaan om aangesteld te worden voor chauffeur
+                                        met O&G of zich kan opgeven om zijn/haar O&G papieren te halen.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Schipper Section -->
+                    <div id="schipper" class="specialisatie-content">
+                        <div class="info-card">
+                            <div class="info-card-header">
+                                <i class="fas fa-ship"></i>
+                                <h3>Lifeguard Schipper Beach</h3>
+                            </div>
+                            <div class="info-content">
+                                <h4>Lifeguard Schipper Beach van buitenaf naar Zandvoort</h4>
+                                
+                                <div class="requirements-list">
+                                    <h4>Vereiste diploma's</h4>
+                                    <ul class="info-list">
+                                        <li>Geldig EHBO* diploma</li>
+                                        <li>Vaarbewijs 1</li>
+                                        <li>Geldig diploma Lifeguard Beach</li>
+                                        <li>Geldig diploma Lifeguard Schipper Beach</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="step-item">
+                                    <h4>Beoordeling</h4>
+                                    <p>
+                                        Naast het hebben van de juiste papieren zal een nieuw lid minimaal 3 uur moeten varen onder
+                                        toezicht van 1 van de Schipper trainers om zijn/haar vaardigheden te tonen. In deze 3 uur wordt
+                                        onder anderen gekeken naar:
+                                    </p>
+                                    <ul class="info-list">
+                                        <li>Kennis over de Zandvoortse protocollen</li>
+                                        <li>Kennis over de boten</li>
+                                        <li>Gebiedskennis van de kustlijn van Zandvoort</li>
+                                        <li>Praktijkkennis wat betreft lanceren, oplieren en het varen zelf</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="step-item">
+                                    <h4>Aanstelling</h4>
+                                    <p>
+                                        Bij een positief advies van de trainer over alle 4 de aspecten kan een nieuw lid aangesteld worden tot
+                                        Lifeguard Schipper, indien in bezit van de hiervoor juiste papieren.
+                                    </p>
+                                </div>
+                                
+                                <div class="step-item">
+                                    <h4>Bij negatief advies</h4>
+                                    <p>
+                                        Bij een negatief advies van de trainer over alleen het onderdeel gebiedskennis mag de kandidaat
+                                        aangesteld worden als Schipper Beach startbekwaam. Op deze manier kan de Schipper onder
+                                        toezicht van post commandanten, trainers en ervaren Schippers kennis opdoen over het gebied van
+                                        de kust van Zandvoort.
+                                    </p>
+                                    <p>
+                                        Bij een negatief advies van de trainer over 1 van de overige te beoordelen aspecten zal de kandidaat
+                                        een jaar lang de mogelijkheid krijgen alle onderdelen en manieren binnen de ZRB te leren kennen
+                                        en/of het vaarbewijs 1 te halen, waarna er na een jaar opnieuw door bestuur, trainer en
+                                        postcommandant gekeken zal worden of de kandidaat aangesteld kan worden tot Schipper Beach.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- RWC Section -->
+                    <div id="rwc" class="specialisatie-content">
+                        <div class="info-card">
+                            <div class="info-card-header">
+                                <i class="fas fa-water"></i>
+                                <h3>Lifeguard Schipper RWC (Waterscooter)</h3>
+                            </div>
+                            <div class="info-content">
+                                <div class="requirements-list">
+                                    <h4>Vereiste diploma's</h4>
+                                    <ul class="info-list">
+                                        <li>Geldige EHBO* diploma</li>
+                                        <li>Geldig diploma Lifeguard Beach</li>
+                                        <li>Vaarbewijs 1</li>
+                                        <li>Geldig diploma Lifeguard Schipper Beach</li>
+                                        <li>Geldig diploma Lifeguard Schipper RWC</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="step-item">
+                                    <h4>Beoordeling</h4>
+                                    <p>
+                                        Voor een aanstelling tot Lifeguard Schipper RWC moet het nieuwe lid minimaal 3 uur onder toezicht van een trainer
+                                        zijn/haar vaardigheden laten zien. In deze 3 uur zal er onder anderen gekeken worden naar:
+                                    </p>
+                                    <ul class="info-list">
+                                        <li>Kennis over de waterscooter</li>
+                                        <li>Gebiedskennis van de kustlijn van Zandvoort</li>
+                                        <li>Praktijkkennis wat betreft lanceren, oplieren en het varen zelf</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="step-item">
+                                    <h4>Aanstelling</h4>
+                                    <p>
+                                        Bij een positief advies van de trainer over alle 3 de aspecten kan een nieuw lid aangesteld worden tot
+                                        Lifeguard Schipper RWC.
+                                    </p>
+                                </div>
+                                
+                                <div class="step-item">
+                                    <h4>Bij negatief advies</h4>
+                                    <p>
+                                        Bij een negatief advies van de trainer over alleen het onderdeel gebiedskennis mag de kandidaat
+                                        aangesteld worden als Schipper RWC startbekwaam. Op deze manier kan de Schipper RWC onder
+                                        toezicht van post commandanten, trainers en ervaren Schippers kennis opdoen over het kustgebied
+                                        van Zandvoort.
+                                    </p>
+                                    <p>
+                                        Bij een negatief advies van de trainer over 1 van de overige te beoordelen aspecten zal de kandidaat
+                                        een jaar lang de mogelijkheid krijgen alle onderdelen en manieren binnen de ZRB te leren kennen
+                                        en/of het vaarbewijs 1 te halen, waarna er na een jaar opnieuw door bestuur, trainer en ervaren Rwc
+                                        Schippers gekeken zal worden of de kandidaat aangesteld kan worden tot Lifeguard Schipper RWC.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Senior Lifeguard Section -->
+                    <div id="senior" class="specialisatie-content">
+                        <div class="info-card">
+                            <div class="info-card-header">
+                                <i class="fas fa-user-tie"></i>
+                                <h3>Senior Lifeguard</h3>
+                            </div>
+                            <div class="info-content">
+                                <div class="important-note">
+                                    <p>
+                                        Om aangesteld te worden als Senior Lifeguard dient een nieuw lid die vanuit een andere brigade
+                                        komt <strong>minimaal 1 jaar actief lid te zijn</strong> van de Zandvoortse Reddingsbrigade.
+                                    </p>
+                                </div>
+                                
+                                <div class="step-item">
+                                    <h4>Proefperiode</h4>
+                                    <p>
+                                        In dit jaar leert de Senior Lifeguard alle protocollen van de ZRB kennen en kan hij/zij kennis op doen
+                                        over het reilen en zeilen op de posten van de ZRB.
+                                    </p>
+                                </div>
+                                
+                                <div class="requirements-list">
+                                    <h4>Vereiste diploma's</h4>
+                                    <p>
+                                        Het nu actieve ZRB lid dient in het bezit te zijn van de onderstaande papieren voordat hij/zij
+                                        aangesteld kan worden tot Senior Lifeguard:
+                                    </p>
+                                    <ul class="info-list">
+                                        <li>Geldige EHBO* diploma</li>
+                                        <li>Geldig diploma Lifeguard Beach</li>
+                                        <li>Minimaal 1 geldig specialisatie diploma als Schipper of chauffeur</li>
+                                        <li>Geldig diploma Senior Lifeguard</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="source-document">
+                        <p>Deze informatie is afkomstig uit het officiële document "Aanstellingsrichtlijn Zandvoortse Reddingsbrigade"</p>
+                        <p><a href="https://drive.google.com/file/d/1iXaeF-Y3MvL0WBbqx8NcS1TZEhxWppQh/view" target="_blank">
+                            <i class="fas fa-file-pdf"></i> Bekijk het originele document (PDF)
+                        </a></p>
+                    </div>
+                </div>
+                
+                <div class="info-section">
+                    <h2><i class="fas fa-certificate"></i> Externe Opleidingen</h2>
+                    <p class="section-intro">
+                        Naast onze interne opleidingen zijn er ook externe opleidingen die van belang zijn voor het werk binnen de Reddingsbrigade. 
+                        Deze opleidingen worden aangeboden door partners en erkende opleidingsinstituten.
+                    </p>
+                    
+                    <div class="info-cards-grid">
+                        <div class="info-card">
+                            <div class="info-card-header">
+                                <i class="fas fa-briefcase-medical"></i>
+                                <h3>EHBO / BLS / AED</h3>
+                            </div>
+                            <div class="info-content">
+                                <p>
+                                    De EHBO opleiding (Eerste Hulp Bij Ongelukken) leert je de basisvaardigheden om eerste hulp te verlenen bij 
+                                    verschillende ongevallen en aandoeningen. De opleiding omvat ook Basic Life Support (BLS) en het gebruik van 
+                                    een Automatische Externe Defibrillator (AED).
+                                </p>
+                                <h4>Inhoud:</h4>
+                                <ul class="info-list">
+                                    <li>Eerste hulp bij verwondingen, bloedingen en breuken</li>
+                                    <li>Reanimatie en gebruik van AED</li>
+                                    <li>Omgaan met bewusteloosheid</li>
+                                    <li>Herkennen van levensbedreigende situaties</li>
+                                    <li>Jaarlijkse herhalingslessen verplicht</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="info-card">
+                            <div class="info-card-header">
+                                <i class="fas fa-broadcast-tower"></i>
+                                <h3>Marifooncertificaat</h3>
+                            </div>
+                            <div class="info-content">
+                                <p>
+                                    Het marifooncertificaat is verplicht voor het gebruik van maritieme communicatieapparatuur op vaartuigen. 
+                                    Dit certificaat is essentieel voor schippers en bemanning van reddingsboten.
+                                </p>
+                                <h4>Inhoud:</h4>
+                                <ul class="info-list">
+                                    <li>Gebruik van marifoonapparatuur</li>
+                                    <li>Maritieme communicatieprotocollen</li>
+                                    <li>Noodprocedures en -kanalen</li>
+                                    <li>Wettelijke voorschriften</li>
+                                    <li>Technische aspecten van maritieme communicatie</li>
+                                </ul>
+                                <p>
+                                    Het examen bestaat uit een theoretisch en een praktisch gedeelte.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="info-section">
+                    <h2><i class="fas fa-calendar-alt"></i> Opleidingskalender</h2>
+                    <p class="section-intro">
+                        Hieronder vind je een overzicht van de geplande opleidingen voor het komende seizoen. 
+                        Aanmelden voor deze opleidingen kan via het secretariaat of de opleidingscoördinator.
+                    </p>
+                    
+                    <div class="info-card">
+                        <div class="info-card-header">
+                            <i class="fas fa-calendar-check"></i>
+                            <h3>Geplande Opleidingen</h3>
+                        </div>
+                        <div class="info-content">
+                            <p>
+                                Voor actuele informatie over de opleidingskalender, neem contact op met de opleidingscoördinator of 
+                                bekijk de agenda op de besloten ledenpagina.
+                            </p>
+                            <p>
+                                <i class="fas fa-envelope"></i> <a href="mailto:opleidingen@zrb.info">opleidingen@zrb.info</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="navigation-buttons">
+                    <a href="informatie.html" class="button secondary"><i class="fas fa-arrow-left"></i> Terug naar Overzicht</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <img src="Logo.png" alt="Reddingsbrigade Zandvoort Logo" class="footer-logo">
+                    <p>Reddingsbrigade Zandvoort</p>
+                </div>
+                <div class="copyright">
+                    <p>&copy; <span id="year"></span> Reddingsbrigade Zandvoort. Alle rechten voorbehouden.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        function showSpecialisatie(id) {
+            // Hide all specialisatie content
+            const contents = document.querySelectorAll('.specialisatie-content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Show selected specialisatie content
+            const selectedContent = document.getElementById(id);
+            if (selectedContent) {
+                selectedContent.classList.add('active');
+            }
+            
+            // Update tab styles
+            const tabs = document.querySelectorAll('.specialisatie-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Highlight selected tab
+            event.currentTarget.classList.add('active');
+        }
+        
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html> 

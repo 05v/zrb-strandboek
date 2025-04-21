@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strandboek - Werkafspraak Actief lid - Reddingsbrigade Zandvoort</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="Logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Styles for Actief lid page */
+        .info-section {
+            margin-bottom: 40px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        
+        .info-header {
+            background: linear-gradient(135deg, #1c6ea4 0%, #3498db 100%);
+            color: white;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .info-header i {
+            font-size: 2.5em;
+            margin-right: 25px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .info-header h2 {
+            margin: 0;
+            font-size: 2em;
+            font-weight: 600;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .info-content {
+            padding: 35px;
+        }
+        
+        .info-intro {
+            font-size: 1.2em;
+            line-height: 1.7;
+            margin-bottom: 35px;
+            color: #444;
+            border-left: 4px solid #3498db;
+            background-color: #f5f9fc;
+            padding: 20px 20px 20px 25px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .section-title {
+            color: #1c6ea4;
+            font-size: 1.6em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e9e9e9;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title i {
+            margin-right: 15px;
+            color: #3498db;
+            font-size: 0.9em;
+        }
+        
+        .criteria-card {
+            background-color: #f5f9fc;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 25px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+        }
+        
+        .criteria-card h3 {
+            color: #1c6ea4;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #d9e6f2;
+            font-size: 1.4em;
+        }
+        
+        .criteria-item {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        
+        .criteria-item i {
+            position: absolute;
+            left: 0;
+            top: 10px;
+            color: #3498db;
+            font-size: 1.5em;
+        }
+        
+        .criteria-requirements {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+        
+        .criteria-requirements li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 12px;
+            line-height: 1.6;
+        }
+        
+        .criteria-requirements li::before {
+            content: "";
+            position: absolute;
+            left: 10px;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            background-color: #3498db;
+            border-radius: 50%;
+        }
+        
+        .or-divider {
+            text-align: center;
+            font-weight: bold;
+            margin: 25px 0;
+            color: #666;
+            position: relative;
+        }
+        
+        .or-divider::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: #ddd;
+            z-index: 1;
+        }
+        
+        .or-divider span {
+            display: inline-block;
+            background-color: #f5f9fc;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .benefits-list {
+            padding-left: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .benefits-list li {
+            margin-bottom: 12px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .source-document {
+            background: linear-gradient(to right, #f5f9fc, #e6f2fa);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 40px 0;
+            text-align: center;
+            border: 1px solid #d9e6f2;
+            box-shadow: 0 3px 15px rgba(52, 152, 219, 0.1);
+        }
+        
+        .source-document p {
+            margin-bottom: 15px;
+        }
+        
+        .source-document a {
+            color: #1c6ea4;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 30px;
+            background-color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(52, 152, 219, 0.15);
+        }
+        
+        .source-document a:hover {
+            background-color: #3498db;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+        
+        .source-document a i {
+            margin-right: 8px;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+        
+        .nav-buttons a {
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-buttons a:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Set background color for the page */
+        body {
+            background-color: #f8f8f8;
+        }
+        
+        .content-section {
+            padding-top: 30px;
+            padding-bottom: 50px;
+        }
+        
+        p {
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        /* Override default h2 styling for this page only */
+        .content-section h2 {
+            color: inherit;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo-container">
+                <img src="Logo.png" alt="Reddingsbrigade Zandvoort Logo" class="logo">
+            </div>
+            <nav class="main-nav">
+                <button class="menu-toggle" aria-label="Menu openen">
+                    <span class="hamburger"></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="informatie.html">Informatie</a></li>
+                    <li><a href="documenten.html">Documenten</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Werkafspraak - Actief lid ZRB</h1>
+                <p>Definitie en criteria voor actief lidmaatschap bij de Zandvoortse Reddingsbrigade</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <div class="info-section">
+                    <div class="info-header">
+                        <i class="fas fa-user-check"></i>
+                        <h2>Actief lid ZRB</h2>
+                    </div>
+                    <div class="info-content">
+                        <div class="info-intro">
+                            <p>
+                                Binnen de ZRB hanteren we de term 'actief lid' om de groep leden aan te duiden die een actieve rol
+                                binnen de vereniging vervullen. Deze actieve leden komen door hun inzet voor de vereniging
+                                bijvoorbeeld in aanmerking om voor bepaalde activiteiten uitgenodigd te worden, voor gebruik van
+                                bepaalde materialen zoals ZRB-kleding en voor deelname aan vervolg/herhalings opleidingen.
+                            </p>
+                        </div>
+                        
+                        <h3 class="section-title"><i class="fas fa-list-check"></i> Definitie actief lid</h3>
+                        <p>
+                            Om te zorgen dat we een gelijk beeld hebben bij deze groep is onderstaande omschrijving opgesteld.
+                            Een ZRB-lid is een actief lid, indien aan één van de volgende criteria wordt voldaan:
+                        </p>
+                        
+                        <div class="criteria-card">
+                            <div class="criteria-item">
+                                <i class="fas fa-life-ring"></i>
+                                <strong>Aantoonbaar deelneemt aan de operationele taken op/vanuit een van de posten voor
+                                tenminste 32 uren per jaar</strong>
+                                <ul class="criteria-requirements">
+                                    <li>In het bezit is van een geldig EHBO-diploma (of een door de ZRB-goedgekeurd
+                                    gelijkwaardig opleidingscertificaat)</li>
+                                    <li>Tenminste 15 jaar oud</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="or-divider"><span>OF</span></div>
+                            
+                            <div class="criteria-item">
+                                <i class="fas fa-chalkboard-teacher"></i>
+                                <strong>Ingezet wordt als instructeur/kaderlid binnen de ZRB voor tenminste 32 uur per jaar</strong>
+                            </div>
+                            
+                            <div class="or-divider"><span>OF</span></div>
+                            
+                            <div class="criteria-item">
+                                <i class="fas fa-users-cog"></i>
+                                <strong>Bestuurslid of commissielid, aangewezen door het bestuur, van de ZRB is</strong>
+                            </div>
+                        </div>
+                        
+                        <h3 class="section-title"><i class="fas fa-award"></i> Voordelen actief lidmaatschap</h3>
+                        <p>
+                            Actieve leden komen in aanmerking voor diverse voordelen, waaronder:
+                        </p>
+                        <ul class="benefits-list">
+                            <li>Uitnodigingen voor speciale activiteiten en evenementen</li>
+                            <li>Gebruik van ZRB-kleding en andere materialen</li>
+                            <li>Deelname aan vervolg- en herhalingsopleidingen</li>
+                            <li>Inspraak bij relevante verenigingszaken</li>
+                        </ul>
+                        
+                        <div class="source-document">
+                            <p>Deze informatie is afkomstig uit het officiële document "Werkafspraak - Actief lid ZRB"</p>
+                            <p><a href="https://drive.google.com/file/d/1OZJKm1L9KWCT5ZhLjhSskboTDuDd2nf3/view" target="_blank">
+                                <i class="fas fa-file-pdf"></i> Bekijk het originele document (PDF)
+                            </a></p>
+                        </div>
+                        
+                        <div class="nav-buttons">
+                            <a href="informatie.html" class="button secondary"><i class="fas fa-arrow-left"></i> Terug naar Informatie</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <img src="Logo.png" alt="Reddingsbrigade Zandvoort Logo" class="footer-logo">
+                    <p>Reddingsbrigade Zandvoort</p>
+                </div>
+                <div class="copyright">
+                    <p>&copy; <span id="year"></span> Reddingsbrigade Zandvoort. Alle rechten voorbehouden.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html> 

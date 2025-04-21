@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strandboek - VOG-beleid - Reddingsbrigade Zandvoort</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="Logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Styles for Policy page */
+        .policy-section {
+            margin-bottom: 40px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        
+        .policy-header {
+            background: linear-gradient(135deg, #4a6da7 0%, #2c4475 100%);
+            color: white;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .policy-header i {
+            font-size: 2.5em;
+            margin-right: 25px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .policy-header h2 {
+            margin: 0;
+            font-size: 2em;
+            font-weight: 600;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .policy-content {
+            padding: 35px;
+        }
+        
+        .policy-intro {
+            font-size: 1.2em;
+            line-height: 1.7;
+            margin-bottom: 35px;
+            color: #444;
+            border-left: 4px solid #4a6da7;
+            background-color: #f5f8ff;
+            padding: 20px 20px 20px 25px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .section-title {
+            color: #2c4475;
+            font-size: 1.6em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e9e9e9;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title i {
+            margin-right: 15px;
+            color: #4a6da7;
+            font-size: 1em;
+        }
+        
+        .info-box {
+            background-color: #f5f8ff;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 25px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+            border-left: 3px solid #4a6da7;
+        }
+        
+        .info-box h3 {
+            color: #2c4475;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            display: flex;
+            align-items: center;
+        }
+        
+        .info-box h3 i {
+            margin-right: 10px;
+            color: #4a6da7;
+        }
+        
+        .process-steps {
+            margin: 30px 0;
+            counter-reset: step-counter;
+        }
+        
+        .process-step {
+            display: flex;
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .step-number {
+            background-color: #4a6da7;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+            font-weight: bold;
+        }
+        
+        .step-content {
+            flex-grow: 1;
+            padding-top: 5px;
+        }
+        
+        .step-content h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #2c4475;
+            font-size: 1.2em;
+        }
+        
+        .step-content p {
+            margin-top: 0;
+        }
+        
+        .policy-list {
+            list-style-type: none;
+            padding-left: 5px;
+            margin-bottom: 25px;
+        }
+        
+        .policy-list li {
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        
+        .policy-list li:before {
+            content: "•";
+            color: #4a6da7;
+            position: absolute;
+            left: 0;
+            font-size: 1.4em;
+            top: -5px;
+        }
+        
+        .note-box {
+            background-color: #fff8e1;
+            border-left: 3px solid #ffc107;
+            padding: 15px 20px;
+            margin: 20px 0;
+            border-radius: 0 8px 8px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .note-box i {
+            color: #ffc107;
+            font-size: 1.5em;
+            margin-right: 15px;
+        }
+        
+        .source-document {
+            background: linear-gradient(to right, #f5f8ff, #e6eeff);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 40px 0;
+            text-align: center;
+            border: 1px solid #c9d6ff;
+            box-shadow: 0 3px 15px rgba(74, 109, 167, 0.1);
+        }
+        
+        .source-document p {
+            margin-bottom: 15px;
+        }
+        
+        .source-document a {
+            color: #2c4475;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 30px;
+            background-color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(74, 109, 167, 0.15);
+            margin: 0 10px 10px 0;
+        }
+        
+        .source-document a:hover {
+            background-color: #4a6da7;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(74, 109, 167, 0.3);
+        }
+        
+        .source-document a i {
+            margin-right: 8px;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+        
+        .nav-buttons a {
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-buttons a:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Set background color for the page */
+        body {
+            background-color: #f8f8f8;
+        }
+        
+        .content-section {
+            padding-top: 30px;
+            padding-bottom: 50px;
+        }
+        
+        p {
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        /* Override default h2 styling for this page only */
+        .content-section h2 {
+            color: inherit;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        .two-columns {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .policy-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid #4a6da7;
+        }
+        
+        .policy-card h3 {
+            color: #2c4475;
+            margin-top: 0;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #f1f1f1;
+            font-size: 1.3em;
+        }
+        
+        /* Responsive styles */
+        @media screen and (max-width: 768px) {
+            .two-columns {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo-container">
+                <img src="Logo.png" alt="Reddingsbrigade Zandvoort Logo" class="logo">
+            </div>
+            <nav class="main-nav">
+                <button class="menu-toggle" aria-label="Menu openen">
+                    <span class="hamburger"></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="informatie.html">Informatie</a></li>
+                    <li><a href="inzetvoorstellen.html">Inzetvoorstellen</a></li>
+                    <li><a href="documenten.html">Documenten</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>VOG-beleid</h1>
+                <p>Zandvoortse Reddingsbrigade</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <div class="policy-section">
+                    <div class="policy-header">
+                        <i class="fas fa-id-card"></i>
+                        <h2>VOG-beleid</h2>
+                    </div>
+                    <div class="policy-content">
+                        <div class="policy-intro">
+                            <p>
+                                De Zandvoortse Reddingsbrigade (ZRB) vindt een veilige omgeving voor alle leden, vrijwilligers en hulpbehoevenden essentieel. Daarom hanteert de ZRB een helder VOG-beleid waarmee we bijdragen aan een veilige sportomgeving voor iedereen.
+                            </p>
+                        </div>
+                        
+                        <h3 class="section-title"><i class="fas fa-question-circle"></i> Wat is een VOG?</h3>
+                        <p>
+                            Een VOG (Verklaring Omtrent het Gedrag) is een officieel document van de overheid waarin staat dat jouw gedrag in het verleden geen bezwaar vormt voor het uitvoeren van vrijwilligerswerk bij de ZRB. De ZRB vraagt een VOG om een zo veilig mogelijke omgeving te creëren voor alle leden, jeugdleden én voor mensen aan wie hulp wordt verleend.
+                        </p>
+                        
+                        <h3 class="section-title"><i class="fas fa-users"></i> Wie moet een VOG aanvragen?</h3>
+                        
+                        <div class="two-columns">
+                            <div class="policy-card">
+                                <h3>VOG wordt aangevraagd voor:</h3>
+                                <ul class="policy-list">
+                                    <li>Volwassen leden die actief zijn op de post</li>
+                                    <li>Leden die betrokken zijn bij opleidingen, zwembadactiviteiten of het bestuur</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="policy-card">
+                                <h3>Niet verplicht voor:</h3>
+                                <ul class="policy-list">
+                                    <li>Leden jonger dan 18 jaar</li>
+                                    <li>Volwassen leden zonder actieve functie</li>
+                                    <li>Donateurs</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <h3 class="section-title"><i class="fas fa-file-alt"></i> Hoe vraag je een VOG aan?</h3>
+                        
+                        <div class="process-steps">
+                            <div class="process-step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>Initiatie door ZRB</h4>
+                                    <p>Het secretariaat van de ZRB start de aanvraag via Justis (Ministerie van Justitie en Veiligheid).</p>
+                                </div>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>E-mail ontvangen</h4>
+                                    <p>Je ontvangt een e-mail met een link van Justis.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="process-step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>Aanvraag afhandelen</h4>
+                                    <p>Je vult de aanvraag zelf digitaal in en bevestigt deze.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="note-box">
+                            <i class="fas fa-sticky-note"></i>
+                            <p><strong>Let op:</strong> Alleen je e-mailadres is nodig om de aanvraag te starten.</p>
+                        </div>
+                        
+                        <p>Het screeningsprofiel is: <strong>"Gezondheidszorg en welzijn van mens en dier"</strong>.</p>
+                        
+                        <h3 class="section-title"><i class="fas fa-euro-sign"></i> Kosten en geldigheid</h3>
+                        
+                        <div class="info-box">
+                            <h3><i class="fas fa-money-bill-wave"></i> Kosten</h3>
+                            <p>Een VOG is gratis voor ZRB-vrijwilligers.</p>
+                        </div>
+                        
+                        <div class="info-box">
+                            <h3><i class="fas fa-calendar-check"></i> Geldigheid</h3>
+                            <p>Een VOG heeft geen officiële einddatum, maar de ZRB vraagt elke 5 jaar een nieuwe VOG aan. Het secretariaat bewaakt deze termijn.</p>
+                        </div>
+                        
+                        <h3 class="section-title"><i class="fas fa-clipboard-check"></i> Wat gebeurt er met je VOG?</h3>
+                        
+                        <ul class="policy-list">
+                            <li>Je ontvangt de VOG per post binnen 1–4 weken.</li>
+                            <li>Je houdt het origineel zelf.</li>
+                            <li>Je meldt bij het secretariaat dat je de VOG hebt ontvangen.</li>
+                            <li>De ZRB controleert het document op echtheid en afgiftedatum.</li>
+                            <li>Nummer en datum worden opgenomen in de ledenadministratie.</li>
+                        </ul>
+                        
+                        <h3 class="section-title"><i class="fas fa-shield-alt"></i> Waarom werkt de ZRB met een VOG?</h3>
+                        
+                        <p>Sinds 2016 werd gestart met VOG-aanvragen voor bestuur en instructeurs. In 2020 besloot de ledenvergadering dit uit te breiden naar een verenigingsbreed beleid.</p>
+                        
+                        <p>Dit zorgt voor:</p>
+                        <ul class="policy-list">
+                            <li>Meer veiligheid binnen de vereniging</li>
+                            <li>Vertrouwen richting ouders en externe partijen</li>
+                            <li>Professionalisering van het vrijwilligersbeleid</li>
+                        </ul>
+                        
+                        <div class="source-document">
+                            <p>Deze informatie is afkomstig uit het officiële document "VOG-beleid – Zandvoortse Reddingsbrigade"</p>
+                            <p>
+                                <a href="https://drive.google.com/file/d/1RM5p48zk6FFDVquqwRP6Oqj2XbMRkiVn/view" target="_blank">
+                                    <i class="fas fa-file-pdf"></i> Bekijk het originele document (PDF)
+                                </a>
+                            </p>
+                            <p>Meer informatie:</p>
+                            <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+                                <a href="https://justis.nl/producten/verklaring-omtrent-het-gedrag/vog-en-zzp" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i> Rijksoverheid over VOG
+                                </a>
+                                <a href="https://nocnsf.nl/nederland-sport-veilig" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i> NOC*NSF Sport Veilig
+                                </a>
+                                <a href="https://www.reddingsbrigade.nl/wij/privacyverklaring-en-cookies/privacyverklaring/" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i> Privacybeleid Reddingsbrigade Nederland
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="nav-buttons">
+                            <a href="informatie.html" class="button secondary"><i class="fas fa-arrow-left"></i> Terug naar Informatie</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <img src="Logo.png" alt="Reddingsbrigade Zandvoort Logo" class="footer-logo">
+                    <p>Reddingsbrigade Zandvoort</p>
+                </div>
+                <div class="copyright">
+                    <p>&copy; <span id="year"></span> Reddingsbrigade Zandvoort. Alle rechten voorbehouden.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html> 

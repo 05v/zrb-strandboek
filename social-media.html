@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strandboek - Richtlijnen Sociale Media - Reddingsbrigade Zandvoort</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="Logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Styles for Social Media Guidelines page */
+        .guidelines-section {
+            margin-bottom: 40px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        
+        .guidelines-header {
+            background: linear-gradient(135deg, #2980b9 0%, #3498db 100%);
+            color: white;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .guidelines-header i {
+            font-size: 2.5em;
+            margin-right: 25px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .guidelines-header h2 {
+            margin: 0;
+            font-size: 2em;
+            font-weight: 600;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .guidelines-content {
+            padding: 35px;
+        }
+        
+        .guidelines-intro {
+            font-size: 1.2em;
+            line-height: 1.7;
+            margin-bottom: 35px;
+            color: #444;
+            border-left: 4px solid #3498db;
+            background-color: #f5f9fc;
+            padding: 20px 20px 20px 25px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .section-title {
+            color: #2980b9;
+            font-size: 1.6em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e9e9e9;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title i {
+            margin-right: 15px;
+            color: #3498db;
+            font-size: 1em;
+        }
+        
+        .rule-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border-left: 3px solid #3498db;
+        }
+        
+        .rule-title {
+            color: #2980b9;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .rule-title i {
+            margin-right: 12px;
+            color: #3498db;
+            font-size: 1.2em;
+            margin-top: 4px;
+        }
+        
+        .rule-number {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            background: #3498db;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 28px;
+            margin-right: 15px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        
+        .bullet-list {
+            padding-left: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .bullet-list li {
+            margin-bottom: 12px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .bullet-list li::before {
+            content: "";
+            position: absolute;
+            left: -20px;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            background-color: #3498db;
+            border-radius: 50%;
+        }
+        
+        .do-and-dont {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .do-and-dont {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .do-card, .dont-card {
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .do-card {
+            background-color: #f0faf0;
+            border-left: 5px solid #27ae60;
+        }
+        
+        .dont-card {
+            background-color: #fff5f5;
+            border-left: 5px solid #e74c3c;
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-header i {
+            font-size: 1.8em;
+            margin-right: 15px;
+        }
+        
+        .do-card .card-header i {
+            color: #27ae60;
+        }
+        
+        .dont-card .card-header i {
+            color: #e74c3c;
+        }
+        
+        .card-header h3 {
+            margin: 0;
+            font-size: 1.5em;
+            font-weight: 600;
+        }
+        
+        .do-card .card-header h3 {
+            color: #27ae60;
+        }
+        
+        .dont-card .card-header h3 {
+            color: #e74c3c;
+        }
+        
+        .do-dont-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .do-dont-list li {
+            padding-left: 28px;
+            position: relative;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+        
+        .do-dont-list li:last-child {
+            margin-bottom: 0;
+        }
+        
+        .do-dont-list li i {
+            position: absolute;
+            left: 0;
+            top: 2px;
+        }
+        
+        .do-card .do-dont-list li i {
+            color: #27ae60;
+        }
+        
+        .dont-card .do-dont-list li i {
+            color: #e74c3c;
+        }
+        
+        .contact-box {
+            background: linear-gradient(to right, #f5f9fc, #e6f2fa);
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 40px;
+            text-align: center;
+            border: 1px solid #d9e6f2;
+        }
+        
+        .contact-box h3 {
+            color: #2980b9;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        
+        .contact-box p {
+            margin-bottom: 20px;
+        }
+        
+        .contact-button {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(52, 152, 219, 0.3);
+        }
+        
+        .contact-button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+        }
+        
+        .contact-button i {
+            margin-right: 8px;
+        }
+        
+        .source-document {
+            background: linear-gradient(to right, #f5f9fc, #e6f2fa);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 40px 0;
+            text-align: center;
+            border: 1px solid #d9e6f2;
+            box-shadow: 0 3px 15px rgba(52, 152, 219, 0.1);
+        }
+        
+        .source-document p {
+            margin-bottom: 15px;
+        }
+        
+        .source-document a {
+            color: #2980b9;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 30px;
+            background-color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(52, 152, 219, 0.15);
+        }
+        
+        .source-document a:hover {
+            background-color: #3498db;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+        
+        .source-document a i {
+            margin-right: 8px;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+        
+        .nav-buttons a {
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-buttons a:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Set background color for the page */
+        body {
+            background-color: #f8f8f8;
+        }
+        
+        .content-section {
+            padding-top: 30px;
+            padding-bottom: 50px;
+        }
+        
+        p {
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        /* Override default h2 styling for this page only */
+        .content-section h2 {
+            color: inherit;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo-container">
+                <img src="Logo.png" alt="Reddingsbrigade Zandvoort Logo" class="logo">
+            </div>
+            <nav class="main-nav">
+                <button class="menu-toggle" aria-label="Menu openen">
+                    <span class="hamburger"></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="informatie.html">Informatie</a></li>
+                    <li><a href="documenten.html">Documenten</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Richtlijnen voor het gebruik van sociale media</h1>
+                <p>Zandvoortse Reddingsbrigade</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <div class="guidelines-section">
+                    <div class="guidelines-header">
+                        <i class="fas fa-share-nodes"></i>
+                        <h2>Sociale media richtlijnen</h2>
+                    </div>
+                    <div class="guidelines-content">
+                        <div class="guidelines-intro">
+                            <p>
+                                Sociale media zijn niet meer weg te denken uit onze samenleving. Voor de Zandvoortse Reddingsbrigade vormen platforms zoals Facebook, Instagram, Twitter en andere netwerken een krachtig kanaal om informatie te delen, het imago van de brigade te versterken en communicatie tijdens incidenten te ondersteunen.
+                            </p>
+                            <p>
+                                Tegelijkertijd brengen sociale media ook risico's met zich mee, bijvoorbeeld bij het verspreiden van gevoelige informatie. Daarom gelden binnen de ZRB heldere richtlijnen voor het gebruik van sociale media.
+                            </p>
+                        </div>
+                        
+                        <h3 class="section-title"><i class="fas fa-gavel"></i> Algemene gedragsregels</h3>
+                        
+                        <div class="rule-card">
+                            <h4 class="rule-title">
+                                <span class="rule-number">1</span>
+                                <span>Eigen verantwoordelijkheid</span>
+                            </h4>
+                            <p>Iedere vrijwilliger is verantwoordelijk voor wat hij of zij online plaatst. Denk goed na over de inhoud en mogelijke gevolgen van berichten. Bij twijfel: plaats niets en neem contact op met de werkgroep Communicatie.</p>
+                        </div>
+                        
+                        <div class="rule-card">
+                            <h4 class="rule-title">
+                                <span class="rule-number">2</span>
+                                <span>Vrijwilligers zijn ambassadeurs</span>
+                            </h4>
+                            <p>Je bent online een vertegenwoordiger van de ZRB. Uitlatingen kunnen het imago versterken of schaden. Online gedrag hoort in lijn te zijn met de omgangsvormen binnen de vereniging. Beledigende, seksistische of discriminerende uitlatingen zijn niet toegestaan.</p>
+                        </div>
+                        
+                        <div class="rule-card">
+                            <h4 class="rule-title">
+                                <span class="rule-number">3</span>
+                                <span>Vertrouwelijke informatie</span>
+                            </h4>
+                            <p>Het is verboden om vertrouwelijke, gevoelige, persoonlijke of meldkamerinformatie te publiceren.</p>
+                        </div>
+                        
+                        <div class="rule-card">
+                            <h4 class="rule-title">
+                                <span class="rule-number">4</span>
+                                <span>Privépersoon vs. vrijwilliger</span>
+                            </h4>
+                            <p>Wees je ervan bewust dat persoonlijke meningen online kunnen botsen met de belangen van de ZRB. Online geplaatste berichten kunnen, ook na verwijdering, nog vindbaar zijn via zoekmachines.</p>
+                        </div>
+                        
+                        <div class="rule-card">
+                            <h4 class="rule-title">
+                                <span class="rule-number">5</span>
+                                <span>Contact met de pers</span>
+                            </h4>
+                            <p>Alle perscontacten, ook via sociale media, verlopen via de commissaris PR & Communicatie. Telefoonnummer en mailadres zijn beschikbaar in de radiokamer.</p>
+                        </div>
+                        
+                        <h3 class="section-title"><i class="fas fa-list-check"></i> Specifieke richtlijnen</h3>
+                        
+                        <div class="rule-card">
+                            <h4 class="rule-title">
+                                <span class="rule-number">6</span>
+                                <span>Beheer van sociale media-accounts</span>
+                            </h4>
+                            <ul class="bullet-list">
+                                <li>Alle officiële accounts van de ZRB worden beheerd door de werkgroep Communicatie.</li>
+                                <li>Nieuwe accounts (bijvoorbeeld van dagcommandanten) moeten eerst worden aangevraagd.</li>
+                                <li>Voor advies kun je altijd terecht bij de werkgroep Communicatie.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="rule-card">
+                            <h4 class="rule-title">
+                                <span class="rule-number">7</span>
+                                <span>Crisiscommunicatie</span>
+                            </h4>
+                            <p>Tijdens of na een crisis is het verboden voor vrijwilligers om berichten te plaatsen op sociale media. Crisiscommunicatie is voorbehouden aan de commissaris PR & Communicatie.</p>
+                        </div>
+                        
+                        <div class="rule-card">
+                            <h4 class="rule-title">
+                                <span class="rule-number">8</span>
+                                <span>Reageren op berichten</span>
+                            </h4>
+                            <ul class="bullet-list">
+                                <li>Reageer in principe niet publiekelijk op kritische of negatieve berichten.</li>
+                                <li>Signaleer complimenten, kritiek of relevante berichten en geef deze door aan de werkgroep Communicatie.</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="rule-card">
+                            <h4 class="rule-title">
+                                <span class="rule-number">9</span>
+                                <span>Auteursrecht</span>
+                            </h4>
+                            <ul class="bullet-list">
+                                <li>Gebruik geen afbeeldingen of teksten van derden zonder toestemming.</li>
+                                <li>Plaats geen foto's of video's van collega's, slachtoffers of incidenten zonder hun expliciete toestemming.</li>
+                            </ul>
+                        </div>
+                        
+                        <h3 class="section-title"><i class="fas fa-check-double"></i> Samenvatting: Do's & Don'ts</h3>
+                        
+                        <div class="do-and-dont">
+                            <div class="do-card">
+                                <div class="card-header">
+                                    <i class="fas fa-circle-check"></i>
+                                    <h3>Do's</h3>
+                                </div>
+                                <ul class="do-dont-list">
+                                    <li><i class="fas fa-check"></i> Maak jezelf vertrouwd met deze richtlijnen.</li>
+                                    <li><i class="fas fa-check"></i> Geef bij persoonlijke opvattingen duidelijk aan dat het jouw mening is (gebruik de ik-vorm).</li>
+                                    <li><i class="fas fa-check"></i> Wees respectvol en denk na over de impact van beeldmateriaal.</li>
+                                    <li><i class="fas fa-check"></i> Verwijs perscontacten altijd door naar de commissaris communicatie.</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="dont-card">
+                                <div class="card-header">
+                                    <i class="fas fa-circle-xmark"></i>
+                                    <h3>Don'ts</h3>
+                                </div>
+                                <ul class="do-dont-list">
+                                    <li><i class="fas fa-xmark"></i> Spreek niet namens de ZRB als dat niet jouw taak is.</li>
+                                    <li><i class="fas fa-xmark"></i> Deel geen details over incidenten of interne informatie.</li>
+                                    <li><i class="fas fa-xmark"></i> Verspreid geen materiaal van slachtoffers, collega's of andere diensten zonder toestemming.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-box">
+                            <h3>Vragen of twijfels?</h3>
+                            <p>Bij twijfel over het gebruik van sociale media kun je altijd terecht bij de werkgroep Communicatie van de Zandvoortse Reddingsbrigade.</p>
+                            <a href="contact.html" class="contact-button">
+                                <i class="fas fa-envelope"></i> Contact opnemen
+                            </a>
+                        </div>
+                        
+                        <div class="source-document">
+                            <p>Deze informatie is afkomstig uit het officiële document "Richtlijnen voor het gebruik van sociale media – Zandvoortse Reddingsbrigade"</p>
+                            <p><a href="https://drive.google.com/file/d/1f504ZqaSfWxFlbsRGTW761L6jr4aiZKh/view" target="_blank">
+                                <i class="fas fa-file-pdf"></i> Bekijk het originele document (PDF)
+                            </a></p>
+                        </div>
+                        
+                        <div class="nav-buttons">
+                            <a href="informatie.html" class="button secondary"><i class="fas fa-arrow-left"></i> Terug naar Informatie</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <img src="Logo.png" alt="Reddingsbrigade Zandvoort Logo" class="footer-logo">
+                    <p>Reddingsbrigade Zandvoort</p>
+                </div>
+                <div class="copyright">
+                    <p>&copy; <span id="year"></span> Reddingsbrigade Zandvoort. Alle rechten voorbehouden.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html> 

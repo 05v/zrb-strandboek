@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strandboek - Protocol Besmettingsaccident - Reddingsbrigade Zandvoort</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="Logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Additional styles for Protocol Besmettingsaccident page */
+        .protocol-section {
+            margin-bottom: 40px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        
+        .protocol-header {
+            background: linear-gradient(135deg, #d44a4a 0%, #a83333 100%);
+            color: white;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .protocol-header i {
+            font-size: 2.5em;
+            margin-right: 25px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .protocol-header h2 {
+            margin: 0;
+            font-size: 2em;
+            font-weight: 600;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .protocol-content {
+            padding: 35px;
+        }
+        
+        .protocol-intro {
+            font-size: 1.2em;
+            line-height: 1.7;
+            margin-bottom: 35px;
+            color: #444;
+            border-left: 4px solid #d44a4a;
+            background-color: #fef9f9;
+            padding: 20px 20px 20px 25px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .section-title {
+            color: #a83333;
+            font-size: 1.6em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e9e9e9;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title i {
+            margin-right: 15px;
+            color: #d44a4a;
+            font-size: 0.9em;
+        }
+        
+        .protocol-card {
+            background-color: #fef9f9;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0 30px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+        }
+        
+        .protocol-card h4 {
+            color: #a83333;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.25em;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+        
+        .bullet-list {
+            padding-left: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .bullet-list li {
+            margin-bottom: 15px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .bullet-list li::before {
+            content: "•";
+            color: #d44a4a;
+            font-weight: bold;
+            position: absolute;
+            left: -20px;
+            font-size: 1.2em;
+        }
+        
+        .warning-box {
+            background-color: #fef5f5;
+            border-left: 5px solid #d44a4a;
+            padding: 20px 25px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+        
+        .warning-box h4 {
+            color: #a83333;
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+        
+        .process-steps {
+            counter-reset: step-counter;
+            margin: 30px 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        
+        .process-step {
+            position: relative;
+            margin-bottom: 25px;
+            padding-left: 60px;
+            min-height: 50px;
+        }
+        
+        .process-step:before {
+            content: counter(step-counter);
+            counter-increment: step-counter;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 42px;
+            height: 42px;
+            background-color: #d44a4a;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .process-step h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #a83333;
+            font-size: 1.2em;
+        }
+        
+        .responsibilities-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+        }
+        
+        .responsibility-item {
+            margin-bottom: 25px;
+            border-left: 3px solid #d44a4a;
+            padding-left: 15px;
+        }
+        
+        .responsibility-item h4 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #a83333;
+            font-size: 1.2em;
+        }
+        
+        .contact-card {
+            background-color: #fef9f9;
+            border-radius: 10px;
+            padding: 25px;
+            margin-top: 30px;
+            box-shadow: 0 2px 10px rgba(212, 74, 74, 0.1);
+        }
+        
+        .contact-card h4 {
+            color: #a83333;
+            margin-top: 0;
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(168, 51, 51, 0.2);
+            padding-bottom: 10px;
+        }
+        
+        .contact-item {
+            margin-bottom: 20px;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .contact-item i {
+            position: absolute;
+            left: 0;
+            top: 3px;
+            color: #d44a4a;
+        }
+        
+        .contact-item strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .source-document {
+            background: linear-gradient(to right, #fef5f5, #fef9f9);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 40px 0;
+            text-align: center;
+            border: 1px solid #f7d8d8;
+            box-shadow: 0 3px 15px rgba(212, 74, 74, 0.1);
+        }
+        
+        .source-document p {
+            margin-bottom: 15px;
+        }
+        
+        .source-document a {
+            color: #a83333;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 30px;
+            background-color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(212, 74, 74, 0.15);
+        }
+        
+        .source-document a:hover {
+            background-color: #d44a4a;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 74, 74, 0.3);
+        }
+        
+        .source-document a i {
+            margin-right: 8px;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+        
+        .nav-buttons a {
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-buttons a:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Set background color for the page */
+        body {
+            background-color: #f9f9f9;
+        }
+        
+        .content-section {
+            padding-top: 30px;
+            padding-bottom: 50px;
+        }
+        
+        p {
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        /* Override default h2 styling for this page only */
+        .content-section h2 {
+            color: inherit;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo-container">
+                <img src="Logo.png" alt="Reddingsbrigade Zandvoort Logo" class="logo">
+            </div>
+            <nav class="main-nav">
+                <button class="menu-toggle" aria-label="Menu openen">
+                    <span class="hamburger"></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="informatie.html">Informatie</a></li>
+                    <li><a href="inzetvoorstellen.html">Inzetvoorstellen</a></li>
+                    <li><a href="documenten.html">Documenten</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Protocol Besmettingsaccident</h1>
+                <p>Richtlijnen na prik-, bijt-, snij-, krab- en spataccidenten met lichaamsvloeistoffen</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <div class="protocol-section">
+                    <div class="protocol-header">
+                        <i class="fas fa-biohazard"></i>
+                        <h2>Protocol Besmettingsaccident</h2>
+                    </div>
+                    <div class="protocol-content">
+                        <div class="protocol-intro">
+                            <p>
+                                Dit protocol beschrijft het beleid na prik-, bijt-, snij-, krab- en spataccidenten met bloed en andere 
+                                lichaamsvloeistoffen. In het vervolg worden prik-, bijt- snij-, krab- en spataccidenten samengevat als 
+                                prikaccidenten.
+                            </p>
+                        </div>
+                        
+                        <h3 class="section-title"><i class="fas fa-info-circle"></i> Algemene informatie</h3>
+                        <p>
+                            Dit protocol beschrijft het beleid na prik-, bijt-, snij-, krab en spataccidenten met bloed en andere
+                            lichaamsvloeistoffen. In het vervolg worden prik-, bijt- snij-, krab- en spataccidenten samengevat als
+                            prikaccidenten. De eventuele kosten voor de afhandeling van een incident zullen door Prevent Care
+                            bij de gemeente worden gefactureerd (de abonnements kosten worden door de VRK gedragen).
+                        </p>
+                        <p>
+                            <strong>Voorkomen is beter dan genezen.</strong> Organisatorische maatregelen zoals het geven van voorlichting &
+                            instructie, het opstellen van preventieve gedragsregels, beschikbaar stellen en gebruik maken van
+                            persoonlijke beschermingsmiddelen (PBM) zoals handschoentjes en beademingsmaskers en
+                            preventieve vaccinatie zijn hierbij van belang.
+                        </p>
+                        
+                        <h3 class="section-title"><i class="fas fa-exclamation-triangle"></i> Wanneer is er sprake van risicovol bloedcontact?</h3>
+                        <p>Er is sprake van risicovol bloedcontact bij:</p>
+                        <ul class="bullet-list">
+                            <li>Besmetting met bloed en/ of lichaamsvloeistoffen via de niet-intacte huid (verse schaaf- of
+                                snijwonden, kloven, actieve eczeemplekken, enzovoorts) van de lifeguard. Bij een
+                                prikaccident komt bloed (of een andere lichaamsvloeistof) van de ene persoon via een scherp
+                                voorwerp, bijvoorbeeld een injectienaald of scalpel, in het lichaam van een ander.</li>
+                            <li>Bloedspatten in het gezicht (ogen, mond, waarbij de spetters op of in de mond terecht komen
+                                of ingeslikt worden) van de lifeguard. Bij een spataccident betreft het bloed dat op slijmvliezen
+                                of niet-intacte huid terechtkomt.</li>
+                            <li>Menselijke bijt of krabwonden, waarbij door en door tot bloedens toe is gebeten of gekrabd. Bij
+                                een bijt of krab accident komt bloed op mondslijmvlies of speeksel in een open wond.</li>
+                            <li>Mond-op-mond beademing waarbij speeksel van het slachtoffer met bloedbijmenging in de
+                                ogen of de mond van de medewerker terecht komt.</li>
+                        </ul>
+                        <p>
+                            Via prik-, bijt-, snij-, krab- en spataccidenten kunnen hepatitis B-virus (HBV), hepatitis C-virus
+                            (HCV) en Humaan Immunodeficiëntie Virus (hiv) worden overgedragen.
+                        </p>
+                        
+                        <div class="protocol-card">
+                            <h4>Factoren die bepalen of een prikaccident tot infectie leidt</h4>
+                            <p>Of een prikaccident tot infectie van het slachtoffer leidt is afhankelijk van:</p>
+                            <ul class="bullet-list">
+                                <li><strong>Aard van het accident:</strong> Is er daadwerkelijk bloed of een andere lichaamsvloeistof
+                                    overgedragen, en zo ja, hoeveel?</li>
+                                <li><strong>Serostatus van de bron:</strong> bevat het bloed of de lichaamsvloeistof virusdeeltjes?</li>
+                                <li><strong>Immuunstatus van het slachtoffer:</strong> Is het slachtoffer al beschermd door vaccinatie of
+                                    doorgemaakte infectie?</li>
+                            </ul>
+                        </div>
+                        <p>
+                            Aan de hand van de Landelijke Richtlijn Prikaccidenten kan op gestructureerde wijze door de
+                            geconsulteerde verpleegkundige of arts van PreventCare een inschatting gemaakt worden van het
+                            risico op infectie met HBV, HCV en HIV ten gevolge van het accident.
+                        </p>
+                        <p>
+                            Afhankelijk van het risico worden al dan niet maatregelen geadviseerd (en eventueel uitgevoerd) om
+                            het slachtoffer tegen infectie te beschermen (post expositieprofylaxe) of een eventueel opgetreden
+                            infectie in een vroeg stadium te onderkennen.
+                        </p>
+                        
+                        <h3 class="section-title"><i class="fas fa-shield-alt"></i> Preventieve maatregelen</h3>
+                        
+                        <div class="process-steps">
+                            <div class="process-step">
+                                <h4>Voorlichting en instructie</h4>
+                                <p>
+                                    Tijdens de opleiding en/of vakbekwaamheids cursussen worden de risico's voor het oplopen van
+                                    prikaccidenten besproken. Ook tijdens evaluatie en naar aanleiding van meldingen kunnen maatregelen worden genomen.
+                                </p>
+                            </div>
+                            
+                            <div class="process-step">
+                                <h4>Preventieve vaccinatie</h4>
+                                <p>
+                                    Lifeguards wordt op basis van het risico dat zij lopen (preventieve) vaccinatie aangeboden.
+                                </p>
+                            </div>
+                            
+                            <div class="process-step">
+                                <h4>Non responders en niet gevaccineerden</h4>
+                                <p>
+                                    In het geval de mogelijk besmette lifeguard niet gevaccineerd is, of niet beschermd is gebleken na
+                                    vaccinatie (non responder,) is het volgen van de maatregelen extra belangrijk en dient dit in het
+                                    telefoongesprek met de expert van PreventCare vermeld te worden.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="warning-box">
+                            <h4><i class="fas fa-exclamation-circle"></i> Belangrijke opmerking</h4>
+                            <p>
+                                In het geval de mogelijk besmette lifeguard niet gevaccineerd is, of niet beschermd is gebleken na
+                                vaccinatie (non responder), is het volgen van de maatregelen extra belangrijk en dient dit in het
+                                telefoongesprek met de expert van PreventCare vermeld te worden.
+                            </p>
+                        </div>
+                        
+                        <h3 class="section-title"><i class="fas fa-tasks"></i> Verantwoordelijkheden en taken</h3>
+                        <p>
+                            De betrokken lifeguard is zelf verantwoordelijk voor melding van het accident. Na melding kan een
+                            inschatting gemaakt worden of er sprake is van een dergelijk incident en een keuze of dit protocol
+                            verder wordt gevolgd. De EHBP (Eerste Hulp Bij Prikaccidenten) van het bedrijf PreventCare draagt
+                            zorg voor de medische beoordeling, behandeling en de advisering van de betrokken medewerker.
+                        </p>
+                        
+                        <div class="responsibilities-card">
+                            <h4>Taken diverse disciplines</h4>
+                            
+                            <div class="responsibility-item">
+                                <h4>Lifeguards reddingsbrigade</h4>
+                                <ul class="bullet-list">
+                                    <li>Melding van accident en opvolgen eerste maatregelen.</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="responsibility-item">
+                                <h4>Leidinggevende reddingsbrigade</h4>
+                                <ul class="bullet-list">
+                                    <li>Zorgt ervoor dat dit protocol bekend is binnen de eigen Reddingsbrigade</li>
+                                    <li>Vangt de betrokkenen na het incident op.</li>
+                                    <li>Regelt nazorg betrokkene.</li>
+                                    <li>Begeleidt en ondersteunt bij het bellen van PreventCare</li>
+                                    <li>Draag zorg voor registratie in het Reddingsbrigade Hulpverlenings Registratiesysteem en
+                                        stuurt een mailbericht met ondernomen acties naar PVeraar@VRK.nl</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="responsibility-item">
+                                <h4>PreventCare</h4>
+                                <ul class="bullet-list">
+                                    <li>Beoordeling van de aard van het accident en advisering over vervolgstappen</li>
+                                    <li>Bemiddelt zo nodig bij eventueel benodigd bloedonderzoek bij de bron.</li>
+                                    <li>Beoordeling hepatitis B-immuun status verwonde</li>
+                                    <li>Achterhalen van de serostatus van de bron. Zo nodig middels bloedonderzoek.</li>
+                                    <li>Maatregelen ten aanzien van hepatitis B; post expositieprofylaxe</li>
+                                    <li>Maatregelen ten aanzien van hepatitis C; vervolgonderzoek</li>
+                                    <li>Maatregelen ten aanzien van hiv;</li>
+                                    <li>Afname nul serum bij verwonde;</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="responsibility-item">
+                                <h4>Adviseur Arbo, Verzuim en Re-integratie (VRK)</h4>
+                                <ul class="bullet-list">
+                                    <li>Contactpersoon PreventCare, overzicht inzetten PreventCare</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-card">
+                            <h4>Contactpersonen</h4>
+                            
+                            <div class="contact-item">
+                                <i class="fas fa-first-aid"></i>
+                                <strong>EHBP PreventCare</strong>
+                                <p>Tel: 036-5407407 (24/7 bereikbaar)</p>
+                            </div>
+                            
+                            <div class="contact-item">
+                                <i class="fas fa-user-md"></i>
+                                <strong>VRK Petra Veraar</strong>
+                                <p>Tel: 06-31664267<br>Email: PVeraar@VRK.nl</p>
+                            </div>
+                        </div>
+                        
+                        <div class="source-document">
+                            <p>Deze informatie is afkomstig uit het officiële document "Protocol Besmettingsaccident"</p>
+                            <p><a href="https://drive.google.com/file/d/1m7D-n7Wbb-ZZN0eRD0icFuoL5Z_ChpB2/view" target="_blank">
+                                <i class="fas fa-file-pdf"></i> Bekijk het originele document (PDF)
+                            </a></p>
+                        </div>
+                        
+                        <div class="nav-buttons">
+                            <a href="informatie.html" class="button secondary"><i class="fas fa-arrow-left"></i> Terug naar Informatie</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <img src="Logo.png" alt="Reddingsbrigade Zandvoort Logo" class="footer-logo">
+                    <p>Reddingsbrigade Zandvoort</p>
+                </div>
+                <div class="copyright">
+                    <p>&copy; <span id="year"></span> Reddingsbrigade Zandvoort. Alle rechten voorbehouden.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html> 

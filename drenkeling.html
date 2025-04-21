@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strandboek - Protocol Hulpverlening Drenkeling - Reddingsbrigade Zandvoort</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="Logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Styles for Protocol page */
+        .protocol-section {
+            margin-bottom: 40px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        
+        .protocol-header {
+            background: linear-gradient(135deg, #0086b3 0%, #005f80 100%);
+            color: white;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .protocol-header i {
+            font-size: 2.5em;
+            margin-right: 25px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .protocol-header h2 {
+            margin: 0;
+            font-size: 2em;
+            font-weight: 600;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .protocol-content {
+            padding: 35px;
+        }
+        
+        .protocol-intro {
+            font-size: 1.2em;
+            line-height: 1.7;
+            margin-bottom: 35px;
+            color: #444;
+            border-left: 4px solid #0086b3;
+            background-color: #f5f9ff;
+            padding: 20px 20px 20px 25px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .section-title {
+            color: #0056b3;
+            font-size: 1.6em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e9e9e9;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title i {
+            margin-right: 15px;
+            color: #0086b3;
+            font-size: 1em;
+        }
+        
+        .step-box {
+            background-color: #f8f8f8;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 25px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+        }
+        
+        .step-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: #0056b3;
+            font-weight: 600;
+            font-size: 1.3em;
+        }
+        
+        .step-number {
+            background-color: #0086b3;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-weight: bold;
+        }
+        
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .check-item i {
+            color: #0086b3;
+            position: absolute;
+            left: 0;
+            top: 4px;
+        }
+        
+        .check-question {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .check-options {
+            display: flex;
+            flex-direction: column;
+            margin-left: 20px;
+        }
+        
+        .check-option {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .check-option i {
+            margin-right: 8px;
+            position: static;
+            color: #0056b3;
+        }
+        
+        .task-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+            margin-bottom: 20px;
+            border-left: 4px solid #0086b3;
+        }
+        
+        .task-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .task-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #f5f9ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+        
+        .task-icon i {
+            color: #0086b3;
+            font-size: 1.2em;
+        }
+        
+        .task-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #0056b3;
+            margin: 0;
+        }
+        
+        .task-list {
+            list-style-type: none;
+            padding-left: 0;
+            margin-top: 15px;
+        }
+        
+        .task-list li {
+            padding: 8px 0;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .task-list li:before {
+            content: "•";
+            color: #0086b3;
+            position: absolute;
+            left: 8px;
+            font-size: 1.2em;
+        }
+        
+        .important-box {
+            background-color: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .important-box h3 {
+            display: flex;
+            align-items: center;
+            color: #b28000;
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        
+        .important-box h3 i {
+            margin-right: 10px;
+        }
+        
+        .important-box p:last-child {
+            margin-bottom: 0;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+        
+        .nav-buttons a {
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-buttons a:hover {
+            transform: translateY(-2px);
+        }
+        
+        .tasks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .source-document {
+            background: linear-gradient(to right, #f5f9ff, #e9f2ff);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 40px 0;
+            text-align: center;
+            border: 1px solid #c9dfff;
+            box-shadow: 0 3px 15px rgba(0, 123, 255, 0.1);
+        }
+        
+        .source-document p {
+            margin-bottom: 15px;
+        }
+        
+        .source-document a {
+            color: #0056b3;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 30px;
+            background-color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 123, 255, 0.15);
+        }
+        
+        .source-document a:hover {
+            background-color: #007bff;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+        }
+        
+        .source-document a i {
+            margin-right: 8px;
+        }
+        
+        /* Set background color for the page */
+        body {
+            background-color: #f8f8f8;
+        }
+        
+        .content-section {
+            padding-top: 30px;
+            padding-bottom: 50px;
+        }
+        
+        p {
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        /* Override default h2 styling for this page only */
+        .content-section h2 {
+            color: inherit;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        
+        /* Responsive styles */
+        @media screen and (max-width: 768px) {
+            .tasks-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo-container">
+                <img src="Logo.png" alt="Reddingsbrigade Zandvoort Logo" class="logo">
+            </div>
+            <nav class="main-nav">
+                <button class="menu-toggle" aria-label="Menu openen">
+                    <span class="hamburger"></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="informatie.html">Informatie</a></li>
+                    <li><a href="inzetvoorstellen.html">Inzetvoorstellen</a></li>
+                    <li><a href="documenten.html">Documenten</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Protocol Hulpverlening Drenkeling</h1>
+                <p>Zandvoortse Reddingsbrigade</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <div class="protocol-section">
+                    <div class="protocol-header">
+                        <i class="fas fa-water"></i>
+                        <h2>Protocol Hulpverlening Drenkeling</h2>
+                    </div>
+                    <div class="protocol-content">
+                        <div class="protocol-intro">
+                            <p>
+                                Dit protocol beschrijft de werkwijze voor hulpverlening bij een drenkeling met ademhalingsproblemen direct na onderdompeling. Een snelle en effectieve aanpak is cruciaal voor een goede uitkomst.
+                            </p>
+                        </div>
+                        
+                        <h3 class="section-title"><i class="fas fa-exclamation-circle"></i> Situatie</h3>
+                        <p>
+                            Ademhalingsproblemen direct na onderdompeling bij een drenkeling.
+                        </p>
+                        
+                        <div class="step-box">
+                            <div class="step-title">
+                                <div class="step-number">1</div>
+                                <span>Beoordelen situatie</span>
+                            </div>
+                            
+                            <div class="check-item">
+                                <i class="fas fa-question-circle"></i>
+                                <div>
+                                    <div class="check-question">Is het slachtoffer bewezen onder water geweest (nog nat)?</div>
+                                    <div class="check-options">
+                                        <div class="check-option">
+                                            <i class="fas fa-arrow-right"></i>
+                                            <span><strong>Nee</strong> → Voer ABCDE zonder zuurstof uit</span>
+                                        </div>
+                                        <div class="check-option">
+                                            <i class="fas fa-arrow-right"></i>
+                                            <span><strong>Ja</strong> → Ga door naar volgende stap</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="check-item">
+                                <i class="fas fa-question-circle"></i>
+                                <div>
+                                    <div class="check-question">Zijn er minimaal drie hulpverleners beschikbaar?</div>
+                                    <div class="check-options">
+                                        <div class="check-option">
+                                            <i class="fas fa-arrow-right"></i>
+                                            <span><strong>Nee</strong> → Voer ABCDE zonder zuurstof uit</span>
+                                        </div>
+                                        <div class="check-option">
+                                            <i class="fas fa-arrow-right"></i>
+                                            <span><strong>Ja</strong> → Voer ABCDE met zuurstof uit</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="step-box">
+                            <div class="step-title">
+                                <div class="step-number">2</div>
+                                <span>Controleer ademhaling</span>
+                            </div>
+                            
+                            <div class="check-item">
+                                <i class="fas fa-question-circle"></i>
+                                <div>
+                                    <div class="check-question">Heeft het slachtoffer een eigen ademhaling?</div>
+                                    <div class="check-options">
+                                        <div class="check-option">
+                                            <i class="fas fa-arrow-right"></i>
+                                            <span><strong>Nee</strong> → <a href="reanimatie-drenkeling.html" style="color: #a94442; text-decoration: underline;">Start het protocol drenkeling reanimatie</a></span>
+                                        </div>
+                                        <div class="check-option">
+                                            <i class="fas fa-arrow-right"></i>
+                                            <span><strong>Ja</strong> → Ga door met de volgende takenverdeling</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3 class="section-title"><i class="fas fa-users"></i> Takenverdeling hulpverleners</h3>
+                        
+                        <div class="tasks-grid">
+                            <div class="task-card">
+                                <div class="task-header">
+                                    <div class="task-icon">
+                                        <i class="fas fa-user-md"></i>
+                                    </div>
+                                    <h4 class="task-title">Hulpverlener 1</h4>
+                                </div>
+                                <ul class="task-list">
+                                    <li>Observeer ABCDE-methode</li>
+                                    <li>Laat slachtoffer zitten</li>
+                                    <li>Communiceer met slachtoffer</li>
+                                    <li>Geef opdracht tot zuurstof toediening</li>
+                                    <li>Let op tekenen van braken</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="task-card">
+                                <div class="task-header">
+                                    <div class="task-icon">
+                                        <i class="fas fa-user-md"></i>
+                                    </div>
+                                    <h4 class="task-title">Hulpverlener 2</h4>
+                                </div>
+                                <ul class="task-list">
+                                    <li>Ondersteun het slachtoffer in zittende houding</li>
+                                </ul>
+                                <p style="margin-top: 15px;"><strong>Let op:</strong></p>
+                                <ul class="task-list">
+                                    <li>Werkplek moet boven de waterlijn zijn</li>
+                                    <li>Geen verdere hulpverlening door redders</li>
+                                    <li>Bij meerdere drenkelingen: werk met meerdere teams en meerdere zuurstofflessen</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="task-card">
+                                <div class="task-header">
+                                    <div class="task-icon">
+                                        <i class="fas fa-user-md"></i>
+                                    </div>
+                                    <h4 class="task-title">Hulpverlener 3</h4>
+                                </div>
+                                <ul class="task-list">
+                                    <li>Bereid zuurstof voor met non-rebreathing masker op 15 liter per minuut</li>
+                                    <li>Plaats masker in opdracht van hulpverlener 1</li>
+                                    <li>Alarmeer ambulance</li>
+                                    <li>Meld dat zuurstof wordt toegediend</li>
+                                    <li>Regel opvang van ambulance</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="important-box">
+                            <h3><i class="fas fa-exclamation-triangle"></i> Belangrijk</h3>
+                            <p>Dit protocol is gebaseerd op samenwerking tussen Reddingsbrigade Zandvoort en andere brigades in de regio, in samenwerking met de RAV Kennemerland en Veiligheidsregio Noord-Holland Noord.</p>
+                            <p>Zorg dat alle hulpverleners bekend zijn met deze werkwijze vóór aanvang van het seizoen of inzet.</p>
+                        </div>
+                        
+                        <div class="source-document">
+                            <p>Deze informatie is afkomstig uit het officiële document "Protocol Hulpverlening Drenkeling – Zandvoortse Reddingsbrigade"</p>
+                            <p><a href="https://drive.google.com/file/d/1VISwOuSVyXsrSr86eOc6aruvTAQMqgSU/view" target="_blank">
+                                <i class="fas fa-file-pdf"></i> Bekijk het originele document (PDF)
+                            </a></p>
+                        </div>
+                        
+                        <div class="nav-buttons">
+                            <a href="informatie.html" class="button secondary"><i class="fas fa-arrow-left"></i> Terug naar Informatie</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <img src="Logo.png" alt="Reddingsbrigade Zandvoort Logo" class="footer-logo">
+                    <p>Reddingsbrigade Zandvoort</p>
+                </div>
+                <div class="copyright">
+                    <p>&copy; <span id="year"></span> Reddingsbrigade Zandvoort. Alle rechten voorbehouden.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html> 

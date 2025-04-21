@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strandboek - Alarmploeg - Reddingsbrigade Zandvoort</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="Logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Additional styles for Alarmploeg page */
+        .alarm-section {
+            margin-bottom: 40px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        
+        .alarm-header {
+            background: linear-gradient(135deg, #3379c1 0%, #1e5288 100%);
+            color: white;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .alarm-header i {
+            font-size: 2.5em;
+            margin-right: 25px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .alarm-header h2 {
+            margin: 0;
+            font-size: 2em;
+            font-weight: 600;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .alarm-content {
+            padding: 35px;
+        }
+        
+        .alarm-intro {
+            font-size: 1.2em;
+            line-height: 1.7;
+            margin-bottom: 35px;
+            color: #444;
+            border-left: 4px solid #3379c1;
+            padding-left: 20px;
+            background-color: #f8fafd;
+            padding: 20px 20px 20px 25px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .section-title {
+            color: #1e5288;
+            font-size: 1.6em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e9e9e9;
+        }
+        
+        .requirements-list {
+            background-color: #f7f9fc;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0 30px 0;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+        }
+        
+        .requirements-list h4 {
+            margin-top: 0;
+            color: #3379c1;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .bullet-list {
+            padding-left: 25px;
+        }
+        
+        .bullet-list li {
+            margin-bottom: 15px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .bullet-list li::before {
+            content: "•";
+            color: #3379c1;
+            font-weight: bold;
+            position: absolute;
+            left: -20px;
+            font-size: 1.2em;
+        }
+        
+        .bullet-list li ul {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding-left: 15px;
+        }
+        
+        .bullet-list li ul li {
+            margin-bottom: 8px;
+        }
+        
+        .bullet-list li ul li::before {
+            content: "◦";
+            color: #5a9bd5;
+        }
+        
+        .term-box {
+            background-color: #edf6ff;
+            border-left: 5px solid #3379c1;
+            padding: 25px 30px;
+            margin: 30px 0;
+            border-radius: 0 12px 12px 0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .term-box h4 {
+            margin-top: 0;
+            color: #1e5288;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+            border-bottom: 1px solid rgba(30, 82, 136, 0.2);
+            padding-bottom: 10px;
+        }
+        
+        .term-item {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .term-item:last-child {
+            margin-bottom: 0;
+        }
+        
+        .term-name {
+            font-weight: 600;
+            color: #333;
+            font-size: 1.1em;
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .source-document {
+            background: linear-gradient(to right, #e8f4ff, #f0f7ff);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 40px 0;
+            text-align: center;
+            border: 1px solid #d0e8ff;
+            box-shadow: 0 3px 15px rgba(0, 119, 204, 0.1);
+        }
+        
+        .source-document p {
+            margin-bottom: 15px;
+        }
+        
+        .source-document a {
+            color: #0077cc;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 30px;
+            background-color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 119, 204, 0.15);
+        }
+        
+        .source-document a:hover {
+            background-color: #0077cc;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 119, 204, 0.3);
+        }
+        
+        .source-document a i {
+            margin-right: 8px;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+        
+        .nav-buttons a {
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-buttons a:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Set background color for the page */
+        body {
+            background-color: #f9f9f9;
+        }
+        
+        .content-section {
+            padding-top: 30px;
+            padding-bottom: 50px;
+        }
+        
+        p {
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        /* Override default h2 styling for this page only */
+        .content-section h2 {
+            color: inherit;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo-container">
+                <img src="Logo.png" alt="Reddingsbrigade Zandvoort Logo" class="logo">
+            </div>
+            <nav class="main-nav">
+                <button class="menu-toggle" aria-label="Menu openen">
+                    <span class="hamburger"></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="informatie.html">Informatie</a></li>
+                    <li><a href="inzetvoorstellen.html">Inzetvoorstellen</a></li>
+                    <li><a href="documenten.html">Documenten</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Alarmploeg & Opgeschaalde Hulpverlening</h1>
+                <p>Zandvoortse Reddingsbrigade</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <div class="alarm-section">
+                    <div class="alarm-header">
+                        <i class="fas fa-bell"></i>
+                        <h2>Alarmploeg ZRB</h2>
+                    </div>
+                    <div class="alarm-content">
+                        <div class="alarm-intro">
+                            <p>
+                                Dit document beschrijft de missie, uitgangspunten en taken van de alarmploeg van de Zandvoortse Reddingsbrigade.
+                                De alarmploeg is 24/7 inzetbaar voor acute- en noodsituaties.
+                            </p>
+                        </div>
+                        
+                        <h3 class="section-title">Inleiding</h3>
+                        <p>
+                            Voor u ligt de het basisdocument van de Zandvoortse Reddingsbrigade omtrent haar 'alarmploeg en
+                            opgeschaalde hulpverlening' (voortaan: alarmploeg).
+                            Dit document beschrijft een eerste opgestelde missie, uitgangspunten en de taken van de
+                            alarmploeg. Hierdoor kan dit document worden beschouwd als basisdocument.
+                        </p>
+                        
+                        <h3 class="section-title">Missie</h3>
+                        <p>
+                            De Zandvoortse Reddingsbrigade (ZRB) heeft vierentwintig uur per dag 7 dagen per week een
+                            vrijwillige alarmploeg operationeel, welke in acute- en noodsituaties inzetbaar is. Het streven is om
+                            binnen 15 minuten voldoende leden van de alarmploeg op de kazerne of reddingspost aanwezig te
+                            hebben om een voer- en vaartuig in te kunnen zetten.
+                        </p>
+                        <p>
+                            De alarmploeg is inzetbaar indien de reddingspost(en) operationeel zijn of vanwege noodzakelijke
+                            (monodisciplinaire) opschaling (indien de reddingsposten wel operationeel zijn).
+                        </p>
+                        <p>
+                            Met deze alarmploeg wil de ZRB de kwaliteit en continuïteit van haar taakstelling gedurende de dag-
+                            avond- en nacht garanderen.
+                        </p>
+                        <p>
+                            De alarmploeg is mono- en multidisciplinair inzetbaar op basis van zacht piket voor (interne)
+                            opschaling en hulpverlening in Zandvoort, in de Veiligheidsregio Kennemerland en in bijzondere
+                            situaties ook daarbuiten zoals bijvoorbeeld inzet van de nationale reddingsvloot of bijstand aan een
+                            andere veiligheidsregio.
+                        </p>
+                        
+                        <h3 class="section-title">Uitgangspunten</h3>
+                        <div class="requirements-list">
+                            <ul class="bullet-list">
+                                <li>De leden van de alarmploeg:
+                                    <ul>
+                                        <li>zijn minimaal 18 jaar;</li>
+                                        <li>zijn lid van de ZRB;</li>
+                                        <li>bezitten het diploma junior lifeguard;</li>
+                                        <li>voldoen aan de richtlijn en voorwaarden van de ZRB-matrix.</li>
+                                    </ul>
+                                </li>
+                                <li>De alarmploeg fungeert primair voor:
+                                    <ul>
+                                        <li>primaire alarmering door- en/of voor ketenpartners indien de reddingspost(en) niet
+                                            operationeel zijn</li>
+                                        <li>voor acute noodzakelijke interne opschaling indien de reddingspost(en)
+                                            operationeel zijn</li>
+                                        <li>voor opschaling en inzet conform de Nationale Reddingsvloot (NRV)</li>
+                                    </ul>
+                                </li>
+                                <li>Primaire alarmering van de alarmploeg (mono- en multidisciplinair) verloopt via P2000</li>
+                                <li>Secundaire alarmering of noodzakelijk aflossing verloopt via P2000 en/of specifieke
+                                    whattsapp 'operationeel'</li>
+                                <li>De alarmploeg bestaat uit aangewezen vrijwilligers</li>
+                                <li>Voor primaire alarmering bestaat de alarmploeg uit:
+                                    <ul>
+                                        <li>bemanning twee reddingsbrigadevoertuigen;
+                                            <ul>
+                                                <li>Minimaal 1 OGS-reddingsbrigadechauffeur, 1 reddingsbrigadechauffeur, 2
+                                                    (junior) lifeguards.</li>
+                                            </ul>
+                                        </li>
+                                        <li>bemanning één reddingsvaartuig;
+                                            <ul>
+                                                <li>Minimaal 1 schipper, 1 (junior) lifeguard.</li>
+                                            </ul>
+                                        </li>
+                                        <li>centralist/bemanning kazerne/reddingspost
+                                            <ul>
+                                                <li>Minimaal 1 lifeguard</li>
+                                            </ul>
+                                        </li>
+                                        <li>Coördinatie:
+                                            <ul>
+                                                <li>Minimaal 1 senior lifeguard</li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <h3 class="section-title">Coördinator alarmploeg & opgeschaalde hulpverlening</h3>
+                        <p>
+                            De coördinator alarmploeg & opgeschaald hulpverlening (coördinator alarmploeg) is op operationeel
+                            en tactisch niveau verantwoordelijk voor de alarmploeg en opgeschaalde hulpverlening. Hierbij kan
+                            gedacht worden aan:
+                        </p>
+                        <ul class="bullet-list">
+                            <li>vertalen van beleid naar operationele procedures en richtlijnen;</li>
+                            <li>operationele aansturing, selectie en benoeming van leden de alarmploeg;</li>
+                            <li>eerste aanspreekpunt voor- en namens de alarmploeg;</li>
+                            <li>contactpersoon voor- en naar ketenpartners omtrent de alarmploeg, inclusief Nationale
+                                Reddingvloot -(NRV), procedures, richtlijnen etc.</li>
+                        </ul>
+                        <p>
+                            De coördinator alarmploeg valt onder direct aansturing van het bestuurslid belast met operationele
+                            zaken.
+                        </p>
+                        
+                        <h3 class="section-title">Toewijzing alarmploeg</h3>
+                        <p>
+                            Leden van de alarmploeg worden aangewezen door de coördinator alarmploeg. De coördinator
+                            alarmploeg laat zich hiervoor adviseren door de postcommandanten en bijvoorbeeld bestuurslid
+                            opleidingen of senior lifeguard's.
+                        </p>
+                        
+                        <h3 class="section-title">Overlegstructuur koude fase</h3>
+                        <p>
+                            De coördinator alarmploeg organiseert minimaal twee keer per jaar een overleg met de leden van de
+                            alarmploeg. Het doel van dit overleg is terugkijken en zo nodig evalueren van de afgelopen periode
+                            en vooruit kijken naar de komende periode; om zo een goede kwaliteit van de inzetten te bewaken
+                            en daarbij oog te hebben voor de impact van de inzetten op de individuele leden van de alarmploeg.
+                        </p>
+                        
+                        <div class="term-box">
+                            <h4>Termen</h4>
+                            <div class="term-item">
+                                <span class="term-name">Acute situatie:</span> een situatie, waarbij een persoon betrokken is, waarbij acuut repressief optreden van
+                                de ZRB wordt verwacht bijvoorbeeld (dreigende) verdrinking, reanimatie etc.
+                            </div>
+                            <div class="term-item">
+                                <span class="term-name">Noodsituatie:</span> een situatie waarin gevaar dreigt en handelen van de ZRB wordt verwacht bijvoorbeeld
+                                overstroming, brand in een strandtent
+                            </div>
+                            <div class="term-item">
+                                <span class="term-name">Opgeschaalde hulpverlening:</span> Indien een hulpverlening niet meer vanuit de standaard reguliere en/of
+                                dagelijkse inzet ('business as usual') afgehandeld kan worden en/of er behoefte is aan éénduidige
+                                afstemming en/of besluitvorming en/of coördinatie.
+                            </div>
+                        </div>
+                        
+                        <div class="source-document">
+                            <p>Deze informatie is afkomstig uit het officiële document "Alarmploeg & Opgeschaalde Hulpverlening"</p>
+                            <p><a href="https://drive.google.com/file/d/1EvlWMQlo17OA3GbOlbxSydxOpgBMPYZ_/view" target="_blank">
+                                <i class="fas fa-file-pdf"></i> Bekijk het originele document (PDF)
+                            </a></p>
+                        </div>
+                        
+                        <div class="nav-buttons">
+                            <a href="informatie.html" class="button secondary"><i class="fas fa-arrow-left"></i> Terug naar Informatie</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <img src="Logo.png" alt="Reddingsbrigade Zandvoort Logo" class="footer-logo">
+                    <p>Reddingsbrigade Zandvoort</p>
+                </div>
+                <div class="copyright">
+                    <p>&copy; <span id="year"></span> Reddingsbrigade Zandvoort. Alle rechten voorbehouden.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html> 

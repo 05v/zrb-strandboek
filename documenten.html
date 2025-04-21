@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strandboek - Documenten - Reddingsbrigade Zandvoort</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="Logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo-container">
+                <img src="Logo.png" alt="Reddingsbrigade Zandvoort Logo" class="logo">
+            </div>
+            <nav class="main-nav">
+                <button class="menu-toggle" aria-label="Menu openen">
+                    <span class="hamburger"></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="informatie.html">Informatie</a></li>
+                    <li><a href="inzetvoorstellen.html">Inzetvoorstellen</a></li>
+                    <li><a href="documenten.html" class="active">Documenten</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Documenten</h1>
+                <p>Alle documenten en protocollen voor de Reddingsbrigade</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <div class="documents-intro">
+                    <h2><i class="fas fa-file-alt"></i> Documentenbibliotheek</h2>
+                    <p class="section-intro">
+                        Hieronder vind je een georganiseerd overzicht van alle belangrijke documenten, protocollen, en richtlijnen voor de Reddingsbrigade.
+                        De documenten zijn ingedeeld in categorieën voor eenvoudige toegang. Klik op een document om het te openen.
+                    </p>
+                </div>
+
+                <!-- Documentcategorieën -->
+                <div class="document-categories">
+                    <div class="category-tabs">
+                        <button class="category-tab active" data-category="all">Alle documenten</button>
+                        <button class="category-tab" data-category="reddingsbrigade">Reddingsbrigade</button>
+                        <button class="category-tab" data-category="ehbo">EHBO</button>
+                        <button class="category-tab" data-category="water">Water</button>
+                        <button class="category-tab" data-category="land">Land</button>
+                        <button class="category-tab" data-category="overige">Overige</button>
+                    </div>
+                </div>
+
+                <!-- Documenten overzicht -->
+                <div class="documents-grid" id="allDocuments">
+                    <!-- Reddingsbrigade Categorie -->
+                    <div class="document-item" data-category="reddingsbrigade">
+                        <a href="https://www.reddingsbrigade-meldkamer.nl/brancherichtlijn_o_g2013.pdf" target="_blank" class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="document-info">
+                                <h3>Brancherichtlijn O&G 2013</h3>
+                                <p class="document-description">Officiële brancherichtlijn voor operationele procedures.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="document-item" data-category="reddingsbrigade">
+                        <a href="https://www.reddingsbrigade-meldkamer.nl/Calamiteitenplan%202.1.pdf" target="_blank" class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="document-info">
+                                <h3>Calamiteitenplan</h3>
+                                <p class="document-description">Protocol voor handelen bij calamiteiten en grote incidenten.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="document-item" data-category="reddingsbrigade">
+                        <a href="https://www.reddingsbrigade-meldkamer.nl/Aanname%20van%20een%20melding.pdf" target="_blank" class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="document-info">
+                                <h3>Aanname van een melding</h3>
+                                <p class="document-description">Procedure voor het aannemen en verwerken van meldingen.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="document-item" data-category="reddingsbrigade">
+                        <a href="https://www.reddingsbrigade-meldkamer.nl/REGISTRATIE%20INCIDENT.pdf" target="_blank" class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="document-info">
+                                <h3>Registratie incident</h3>
+                                <p class="document-description">Formulieren en richtlijnen voor incidentregistratie.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="document-item" data-category="reddingsbrigade">
+                        <a href="http://bondsinfo.reddingsbrigade.nl/overredned/reddingsbrigades" target="_blank" class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-link"></i>
+                            </div>
+                            <div class="document-info">
+                                <h3>Telefoonboek kustbrigades</h3>
+                                <p class="document-description">Contactgegevens van alle kustbrigades in Nederland.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- EHBO Categorie -->
+                    <div class="document-item" data-category="ehbo">
+                        <a href="https://www.reddingsbrigade-meldkamer.nl/Brandwondenprotocol%202010[1].pdf" target="_blank" class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="document-info">
+                                <h3>Brandwondenprotocol</h3>
+                                <p class="document-description">Protocol voor eerste hulp bij brandwonden.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="document-item" data-category="ehbo">
+                        <a href="https://www.reddingsbrigade-meldkamer.nl/Doorverwijzing%20naar%20ziekenhuis%202016.pdf" target="_blank" class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="document-info">
+                                <h3>Doorverwijzing SEH / HAP</h3>
+                                <p class="document-description">Richtlijnen voor doorverwijzing naar spoedeisende hulp of huisartsenpost.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="document-item" data-category="ehbo">
+                        <a href="https://www.reddingsbrigade-meldkamer.nl/infectieziekten2002.pdf" target="_blank" class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="document-info">
+                                <h3>Infectieziekten</h3>
+                                <p class="document-description">Informatie over infectieziekten en voorzorgsmaatregelen.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="document-item" data-category="ehbo">
+                        <a href="https://www.reddingsbrigade-meldkamer.nl/Overplaatsingsformulier%20brandwondenpatienten[1].pdf" target="_blank" class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="document-info">
+                                <h3>Overplaatsingsformulier Brandwonden</h3>
+                                <p class="document-description">Formulier voor overplaatsing van patiënten met brandwonden.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="document-item" data-category="ehbo">
+                        <a href="https://www.reddingsbrigade-meldkamer.nl/drugs%20info.pdf" target="_blank" class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="document-info">
+                                <h3>Drugs info</h3>
+                                <p class="document-description">Informatiedocument over drugsherkenning en eerste hulp.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Water Categorie -->
+                    <div class="document-item" data-category="water">
+                        <a href="https://www.reddingsbrigade-meldkamer.nl/Inzetprotocol%20RB%20en%20KWC%20Kustwachtgebied%20versie%2005a.pdf" target="_blank" class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="document-info">
+                                <h3>Inzetprotocol Kustwacht</h3>
+                                <p class="document-description">Protocol voor samenwerking met Kustwachtcentrum.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="document-item" data-category="water">
+                        <a href="https://www.reddingsbrigade-meldkamer.nl/Eerste%20hulp%20aan%20zeehonden%20door%20reddingsbrigades.pdf" target="_blank" class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="document-info">
+                                <h3>Hulp aan Zeehonden</h3>
+                                <p class="document-description">Richtlijnen voor het verlenen van hulp aan zeehonden op het strand.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="document-item" data-category="water">
+                        <a href="https://www.reddingsbrigade-meldkamer.nl/Registratiekadaverszeezoogdierenbriefgemeenten_VERSTUURD241110.pdf" target="_blank" class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="document-info">
+                                <h3>Registratie kadaver zoogdier</h3>
+                                <p class="document-description">Procedure voor registratie van kadavers van zeezoogdieren.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Land Categorie -->
+                    <div class="document-item" data-category="land">
+                        <a href="https://www.reddingsbrigade-meldkamer.nl/explosieven.pdf" target="_blank" class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="document-info">
+                                <h3>Explosievenkaart</h3>
+                                <p class="document-description">Informatie over explosievenherkenning en veiligheidsmaatregelen.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="document-item" data-category="land">
+                        <a href="https://www.reddingsbrigade-meldkamer.nl/etiketten%20gevaarlijke%20stoffen.pdf" target="_blank" class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="document-info">
+                                <h3>Gevaarlijke stoffen</h3>
+                                <p class="document-description">Overzicht van etikettering van gevaarlijke stoffen.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="document-item" data-category="land">
+                        <a href="https://www.reddingsbrigade-meldkamer.nl/Herkennen%20van%20gevaarlijke%20stoffen.pdf" target="_blank" class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="document-info">
+                                <h3>Herkennen van Gevaarlijke stoffen</h3>
+                                <p class="document-description">Handleiding voor het herkennen van gevaarlijke stoffen.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="document-item" data-category="land">
+                        <a href="https://www.reddingsbrigade-meldkamer.nl/Incident%20management%20openbare%20weg.pdf" target="_blank" class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="document-info">
+                                <h3>Incident management</h3>
+                                <p class="document-description">Protocol voor incident management op de openbare weg.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Overige Categorie -->
+                    <div class="document-item" data-category="overige">
+                        <a href="https://www.reddingsbrigade-meldkamer.nl/Alarmeringskaart.pdf" target="_blank" class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="document-info">
+                                <h3>Alarmeringskaart</h3>
+                                <p class="document-description">Overzicht van alarmeringsprocedures en contactnummers.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="document-item" data-category="overige">
+                        <a href="https://www.reddingsbrigade-meldkamer.nl/Leidraad_Blauwe_Vlag_Strandcriteria_2011%20(1).pdf" target="_blank" class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="document-info">
+                                <h3>Protocol Blauwe vlag</h3>
+                                <p class="document-description">Leidraad voor Blauwe Vlag strandcriteria.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="document-item" data-category="overige">
+                        <a href="https://www.reddingsbrigade-meldkamer.nl/infoafzetlinten.pdf" target="_blank" class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="document-info">
+                                <h3>Informatie afzetlinten</h3>
+                                <p class="document-description">Informatie over verschillende afzetlinten en hun gebruik.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="document-item" data-category="overige">
+                        <a href="https://www.reddingsbrigade-meldkamer.nl/Inzet-_en_cancelcriteria_MMT_-_LNAZ-AZN.pdf" target="_blank" class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="document-info">
+                                <h3>Inzetcriteria MMT</h3>
+                                <p class="document-description">Criteria voor inzet van Mobiel Medisch Team.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="document-item" data-category="overige">
+                        <a href="https://www.reddingsbrigade-meldkamer.nl/Landingsplaats%20Mobiel%20Medisch%20Team.pdf" target="_blank" class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="document-info">
+                                <h3>Landingsplaats MMT</h3>
+                                <p class="document-description">Informatie over landingsplaatsen voor het Mobiel Medisch Team.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="document-item" data-category="overige">
+                        <a href="https://www.reddingsbrigade-meldkamer.nl/Registratie%20spoedrit%20met%20OenG.docx" target="_blank" class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-word"></i>
+                            </div>
+                            <div class="document-info">
+                                <h3>Registratie Spoedrit</h3>
+                                <p class="document-description">Formulier voor registratie van spoedeisende ritten met optische en geluidssignalen.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="document-item" data-category="overige">
+                        <a href="https://www.reddingsbrigade-meldkamer.nl/Slachtoffer%20registratie%20formulier-%20print%20versie%202.2docx.pdf" target="_blank" class="document-card">
+                            <div class="document-icon">
+                                <i class="fas fa-file-pdf"></i>
+                            </div>
+                            <div class="document-info">
+                                <h3>Slachtoffer registratie</h3>
+                                <p class="document-description">Formulier voor registratie van slachtoffers bij incidenten.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="pagination-section">
+                    <p class="document-count">Toont <span id="visible-count">26</span> van 26 documenten</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <img src="Logo.png" alt="Reddingsbrigade Zandvoort Logo" class="footer-logo">
+                    <p>Reddingsbrigade Zandvoort</p>
+                </div>
+                <div class="copyright">
+                    <p>&copy; <span id="year"></span> Reddingsbrigade Zandvoort. Alle rechten voorbehouden.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Document filtering
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.category-tab');
+            const documentItems = document.querySelectorAll('.document-item');
+            const visibleCountElement = document.getElementById('visible-count');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs
+                    tabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    const category = this.getAttribute('data-category');
+                    let visibleCount = 0;
+                    
+                    // Filter documents
+                    documentItems.forEach(item => {
+                        if (category === 'all' || item.getAttribute('data-category') === category) {
+                            item.style.display = 'block';
+                            visibleCount++;
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                    
+                    // Update visible count
+                    visibleCountElement.textContent = visibleCount;
+                });
+            });
+
+            // Set current year in footer
+            document.getElementById('year').textContent = new Date().getFullYear();
+        });
+    </script>
+</body>
+</html> 

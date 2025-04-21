@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strandboek - Brancherichtlijn O&G - Reddingsbrigade Zandvoort</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="Logo.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Styles for O&G Richtlijn page */
+        .richtlijn-section {
+            margin-bottom: 40px;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        
+        .richtlijn-header {
+            background: linear-gradient(135deg, #d63031 0%, #e84393 100%);
+            color: white;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .richtlijn-header i {
+            font-size: 2.5em;
+            margin-right: 25px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .richtlijn-header h2 {
+            margin: 0;
+            font-size: 2em;
+            font-weight: 600;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+        
+        .richtlijn-content {
+            padding: 35px;
+        }
+        
+        .richtlijn-intro {
+            font-size: 1.2em;
+            line-height: 1.7;
+            margin-bottom: 35px;
+            color: #444;
+            border-left: 4px solid #d63031;
+            background-color: #fff8f8;
+            padding: 20px 20px 20px 25px;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        .section-title {
+            color: #d63031;
+            font-size: 1.6em;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e9e9e9;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-title i {
+            margin-right: 15px;
+            color: #d63031;
+            font-size: 0.9em;
+        }
+        
+        .section-title .number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background: #d63031;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 30px;
+            margin-right: 15px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+        
+        .content-card {
+            background-color: #fff8f8;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 25px 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+        }
+        
+        .content-card h3 {
+            color: #d63031;
+            margin-top: 0;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #f5d5d5;
+            font-size: 1.4em;
+        }
+        
+        .bullet-list {
+            padding-left: 25px;
+            margin-bottom: 20px;
+        }
+        
+        .bullet-list li {
+            margin-bottom: 12px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .bullet-list li::before {
+            content: "";
+            position: absolute;
+            left: -20px;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            background-color: #d63031;
+            border-radius: 50%;
+        }
+        
+        .info-block {
+            display: flex;
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #3498db;
+        }
+        
+        .info-block i {
+            font-size: 1.5em;
+            color: #3498db;
+            margin-right: 15px;
+            margin-top: 2px;
+        }
+        
+        .warning-block {
+            display: flex;
+            background: #fff5f5;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #d63031;
+        }
+        
+        .warning-block i {
+            font-size: 1.5em;
+            color: #d63031;
+            margin-right: 15px;
+            margin-top: 2px;
+        }
+        
+        .priority-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 25px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+        }
+        
+        .priority-table th {
+            background-color: #d63031;
+            color: white;
+            text-align: left;
+            padding: 15px;
+            font-weight: 600;
+        }
+        
+        .priority-table tr {
+            border-bottom: 1px solid #f2f2f2;
+        }
+        
+        .priority-table tr:last-child {
+            border-bottom: none;
+        }
+        
+        .priority-table td {
+            padding: 15px;
+            background-color: white;
+        }
+        
+        .priority-table tr:nth-child(even) td {
+            background-color: #f9f9f9;
+        }
+        
+        .priority-level {
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+        
+        .priority-level i {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        
+        .priority-1 {
+            color: #d63031;
+        }
+        
+        .priority-2 {
+            color: #f39c12;
+        }
+        
+        .priority-3 {
+            color: #2ecc71;
+        }
+        
+        .driver-rules {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .rule-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            border-left: 3px solid #d63031;
+        }
+        
+        .rule-card h4 {
+            color: #d63031;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+        }
+        
+        .rule-card h4 i {
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+        
+        .rule-card p {
+            margin: 0;
+            line-height: 1.5;
+        }
+        
+        .contact-section {
+            background: linear-gradient(to right, #fff8f8, #fff0f0);
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 40px;
+        }
+        
+        .contact-header {
+            font-size: 1.4em;
+            color: #d63031;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(214, 48, 49, 0.2);
+            padding-bottom: 10px;
+        }
+        
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-item i {
+            width: 25px;
+            margin-right: 15px;
+            color: #d63031;
+            font-size: 1.2em;
+        }
+        
+        .source-document {
+            background: linear-gradient(to right, #fff8f8, #fff0f0);
+            padding: 25px;
+            border-radius: 12px;
+            margin: 40px 0;
+            text-align: center;
+            border: 1px solid #f9d5d5;
+            box-shadow: 0 3px 15px rgba(214, 48, 49, 0.1);
+        }
+        
+        .source-document p {
+            margin-bottom: 15px;
+        }
+        
+        .source-document a {
+            color: #d63031;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: 30px;
+            background-color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(214, 48, 49, 0.15);
+        }
+        
+        .source-document a:hover {
+            background-color: #d63031;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(214, 48, 49, 0.3);
+        }
+        
+        .source-document a i {
+            margin-right: 8px;
+        }
+        
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+        }
+        
+        .nav-buttons a {
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-buttons a:hover {
+            transform: translateY(-2px);
+        }
+        
+        /* Set background color for the page */
+        body {
+            background-color: #f8f8f8;
+        }
+        
+        .content-section {
+            padding-top: 30px;
+            padding-bottom: 50px;
+        }
+        
+        p {
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        
+        /* Override default h2 styling for this page only */
+        .content-section h2 {
+            color: inherit;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="logo-container">
+                <img src="Logo.png" alt="Reddingsbrigade Zandvoort Logo" class="logo">
+            </div>
+            <nav class="main-nav">
+                <button class="menu-toggle" aria-label="Menu openen">
+                    <span class="hamburger"></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="informatie.html">Informatie</a></li>
+                    <li><a href="documenten.html">Documenten</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Brancherichtlijn Optische- en Geluidssignalen</h1>
+                <p>Reddingsbrigade Nederland - 2024</p>
+            </div>
+        </section>
+
+        <section class="content-section">
+            <div class="container">
+                <div class="richtlijn-section">
+                    <div class="richtlijn-header">
+                        <i class="fas fa-lightbulb"></i>
+                        <h2>Brancherichtlijn O&G 2024</h2>
+                    </div>
+                    <div class="richtlijn-content">
+                        <div class="richtlijn-intro">
+                            <p>
+                                Reddingsbrigade Nederland is als hulpverleningsdienst bevoegd om motorvoertuigen uit te rusten met optische- en geluidssignalen voor de uitvoering van een dringende taak. Deze brancherichtlijn, wettelijk verplicht op grond van de Regeling optische- en geluidssignalen 2009, beschrijft de voorwaarden waaronder signalen mogen worden gevoerd.
+                            </p>
+                            <p>
+                                De bestuurder blijft zelf verantwoordelijk voor verkeersveilig gedrag. Optische- en geluidssignalen vormen nooit een vrijbrief om anderen in gevaar te brengen. Bij incidenten kan het Openbaar Ministerie besluiten tot vervolging als het rijgedrag als onverantwoord wordt beoordeeld.
+                            </p>
+                        </div>
+                        
+                        <h3 class="section-title"><span class="number">1</span> Wet- en Regelgeving</h3>
+                        <p>De richtlijn is gebaseerd op:</p>
+                        <ul class="bullet-list">
+                            <li>Wegenverkeerswet 1994</li>
+                            <li>RVV 1990</li>
+                            <li>Regeling optische- en geluidssignalen 2009</li>
+                        </ul>
+                        
+                        <p>Belangrijke bepalingen:</p>
+                        <ul class="bullet-list">
+                            <li>Artikel 29 RVV 1990: blauw licht en tweetonige hoorn = voorrangsvoertuig</li>
+                            <li>Artikel 30 RVV 1990: geel/groen licht = waarschuwingsfunctie</li>
+                        </ul>
+                        
+                        <h3 class="section-title"><span class="number">2</span> Toepassingsbereik en Aanwijzing</h3>
+                        <p>Van toepassing op:</p>
+                        <ul class="bullet-list">
+                            <li>Alle reddingsbrigadevoertuigen die worden ingezet voor een dringende taak</li>
+                            <li>Aangewezen chauffeurs van Reddingsbrigade Nederland en aangesloten lokale brigades</li>
+                            <li>Ook bij rijvaardigheidstrainingen en bij rijden op het strand</li>
+                        </ul>
+                        
+                        <div class="info-block">
+                            <i class="fas fa-info-circle"></i>
+                            <div>
+                                <p>Per 1 januari 2025 vervalt de generieke aanwijzing en wordt dit per brigade individueel geregeld.</p>
+                            </div>
+                        </div>
+                        
+                        <h3 class="section-title"><span class="number">3</span> Dringende Taak & Prioritering</h3>
+                        <p>Een 'dringende taak' is:</p>
+                        <ul class="bullet-list">
+                            <li>Levensbedreigende situatie of het voorkomen daarvan</li>
+                            <li>Ernstige schade aan mensen, gebouwen of goederen</li>
+                        </ul>
+                        
+                        <table class="priority-table">
+                            <thead>
+                                <tr>
+                                    <th>Prioriteit</th>
+                                    <th>Omschrijving</th>
+                                    <th>Signalen</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="priority-level priority-1"><i class="fas fa-exclamation-triangle"></i>Prioriteit 1</span></td>
+                                    <td>Dringende taak</td>
+                                    <td>Gebruik signalen toegestaan (met toestemming)</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="priority-level priority-2"><i class="fas fa-exclamation"></i>Prioriteit 2</span></td>
+                                    <td>Snelle inzet gewenst, geen levensgevaar</td>
+                                    <td>Geen signalen, tenzij geüpgraded</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="priority-level priority-3"><i class="fas fa-check-circle"></i>Prioriteit 3</span></td>
+                                    <td>Reguliere inzet</td>
+                                    <td>Geen signalen, normale verkeersregels</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        
+                        <h3 class="section-title"><span class="number">4</span> Toestemming & Registratie</h3>
+                        <ul class="bullet-list">
+                            <li>Signalering alleen na toestemming van meldkamer of centrale post</li>
+                            <li>Signalen worden tijdens de volledige rit gevoerd, tenzij afgeschaald</li>
+                            <li>Elk gebruik van signalen wordt geregistreerd door de meldkamer of brigade</li>
+                        </ul>
+                        
+                        <h3 class="section-title"><span class="number">5</span> Overige Signalen</h3>
+                        <p>Naast blauw licht kunnen voertuigen ook voeren:</p>
+                        <ul class="bullet-list">
+                            <li>Geel licht: bij slecht zichtbaarheid voor andere weggebruikers</li>
+                            <li>Knipperende koplampen: alleen overdag toegestaan</li>
+                            <li>Groen licht: geen toepassing binnen reddingsbrigades</li>
+                        </ul>
+                        
+                        <h3 class="section-title"><span class="number">6</span> Gedragscode voor Chauffeurs</h3>
+                        <p>Verantwoord rijgedrag staat centraal. Belangrijkste gedragsregels:</p>
+                        
+                        <div class="driver-rules">
+                            <div class="rule-card">
+                                <h4><i class="fas fa-traffic-light"></i>Kruispunten</h4>
+                                <p>Naderen met aangepaste snelheid, indien nodig stoppen</p>
+                            </div>
+                            
+                            <div class="rule-card">
+                                <h4><i class="fas fa-traffic-light"></i>Rood licht</h4>
+                                <p>Max. 20 km/u passeren (niet bij bruggen of spoor)</p>
+                            </div>
+                            
+                            <div class="rule-card">
+                                <h4><i class="fas fa-road"></i>Vluchtstrook</h4>
+                                <p>Max. 50 km/u</p>
+                            </div>
+                            
+                            <div class="rule-card">
+                                <h4><i class="fas fa-tachometer-alt"></i>Maximumsnelheid</h4>
+                                <p>Max. +40 km/u boven limiet (of +20 km/u met trailer)</p>
+                            </div>
+                            
+                            <div class="rule-card">
+                                <h4><i class="fas fa-car-side"></i>Tegen verkeer in</h4>
+                                <p>Alleen bij tijdwinst en overzicht</p>
+                            </div>
+                            
+                            <div class="rule-card">
+                                <h4><i class="fas fa-cars"></i>Files</h4>
+                                <p>Gebruik vluchtstrook, anders middendoor indien veilig</p>
+                            </div>
+                            
+                            <div class="rule-card">
+                                <h4><i class="fas fa-tree"></i>Strand/duin/bos</h4>
+                                <p>Aangepast tempo, oplettendheid voor mensen & natuur</p>
+                            </div>
+                            
+                            <div class="rule-card">
+                                <h4><i class="fas fa-ambulance"></i>Ambulancevervoer</h4>
+                                <p>Chauffeur bepaalt of gevraagde snelheid medisch verantwoord is</p>
+                            </div>
+                        </div>
+                        
+                        <div class="warning-block">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <div>
+                                <p><strong>Belangrijke waarschuwing:</strong> De bestuurder blijft altijd verantwoordelijk voor verkeersveilig gedrag. Overtreding van de verkeersregels is alleen toegestaan bij dringende taken en wanneer dit veilig kan.</p>
+                            </div>
+                        </div>
+                        
+                        <h3 class="section-title"><span class="number">7</span> Opleiding, Bekwaamheid & Bijscholing</h3>
+                        <p>Eisen voor chauffeurs:</p>
+                        <ul class="bullet-list">
+                            <li>Min. 1 jaar rijbewijs B</li>
+                            <li>Diploma's: Lifeguard en Lifeguard Chauffeur</li>
+                            <li>Proeve van bekwaamheid O&G succesvol afgelegd</li>
+                            <li>Eventueel: extra praktijktraining + geldig EHBO-diploma</li>
+                        </ul>
+                        
+                        <p>Brigadebesturen houden een register bij van bevoegde chauffeurs.</p>
+                        
+                        <p><strong>Bijscholing:</strong><br>
+                        Verantwoordelijkheid van het lokale brigadebestuur en/of Reddingsbrigade Nederland</p>
+                        
+                        <h3 class="section-title"><span class="number">8</span> Inwerkingtreding</h3>
+                        <ul class="bullet-list">
+                            <li>Vastgesteld op 17 juni 2024, van kracht sinds 1 juli 2024</li>
+                            <li>Vervangt de versie van 1 oktober 2019</li>
+                        </ul>
+                        
+                        <p>Kan worden aangehaald als:<br>
+                        <strong>Brancherichtlijn optische- en geluidssignalen Reddingsbrigade 2024</strong></p>
+                        
+                        <div class="contact-section">
+                            <h4 class="contact-header">Contactgegevens</h4>
+                            <div class="contact-info">
+                                <div>
+                                    <div class="contact-item">
+                                        <i class="fas fa-building"></i>
+                                        <span>Reddingsbrigade Nederland – Landelijk Bureau</span>
+                                    </div>
+                                    <div class="contact-item">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span>Dokweg 149, 1976 CA IJmuiden</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="contact-item">
+                                        <i class="fas fa-phone"></i>
+                                        <span>0255 - 545 858</span>
+                                    </div>
+                                    <div class="contact-item">
+                                        <i class="fas fa-envelope"></i>
+                                        <span>info@reddingsbrigade.nl</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="contact-item">
+                                        <i class="fas fa-globe"></i>
+                                        <span>www.reddingsbrigade.nl</span>
+                                    </div>
+                                    <div class="contact-item">
+                                        <i class="fas fa-info-circle"></i>
+                                        <span>KvK: 40531336 – IBAN: NL14 INGB 0000 0076 25</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="source-document">
+                            <p>Deze informatie is afkomstig uit het officiële document "Brancherichtlijn Optische- en Geluidssignalen – Reddingsbrigade 2024"</p>
+                            <p><a href="https://bondsinfo.reddingsbrigade.nl/servicedesk/docs/brancherichtlijn_o_g_rb_2024.pdf" target="_blank">
+                                <i class="fas fa-file-pdf"></i> Bekijk het originele document (PDF)
+                            </a></p>
+                        </div>
+                        
+                        <div class="nav-buttons">
+                            <a href="informatie.html" class="button secondary"><i class="fas fa-arrow-left"></i> Terug naar Informatie</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <img src="Logo.png" alt="Reddingsbrigade Zandvoort Logo" class="footer-logo">
+                    <p>Reddingsbrigade Zandvoort</p>
+                </div>
+                <div class="copyright">
+                    <p>&copy; <span id="year"></span> Reddingsbrigade Zandvoort. Alle rechten voorbehouden.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html> 
